@@ -1,0 +1,17 @@
+@import '_config.css';
+
+* {
+  color: white !important;
+}
+.padd-1 {
+  padding: 1rem;
+}
+.clr-primary {
+  background-color: var(--clr-primary);
+}
+.clr-secondary {
+  background-color: var(--clr-secondary);
+}
+.clr-tertiary {
+  background-color: var(--clr-tertiary);
+}

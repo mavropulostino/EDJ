@@ -1,0 +1,47 @@
+@import '_config.css';
+
+h1 {
+  font-size: calc(var(--font-base) + var(--font-size-step) * 7);
+  line-height: calc(
+    var(--font-base) + var(--font-size-step) * 7 + var(--line-height-offset)
+  );
+}
+h2 {
+  font-size: calc(var(--font-base) + var(--font-size-step) * 6);
+  line-height: calc(
+    var(--font-base) + var(--font-size-step) * 6 + var(--line-height-offset)
+  );
+}
+h3 {
+  font-size: calc(var(--font-base) + var(--font-size-step) * 5);
+  line-height: calc(
+    var(--font-base) + var(--font-size-step) * 5 + var(--line-height-offset)
+  );
+}
+h4 {
+  font-size: calc(var(--font-base) + var(--font-size-step) * 4);
+  line-height: calc(
+    var(--font-base) + var(--font-size-step) * 4 + var(--line-height-offset)
+  );
+}
+h5 {
+  font-size: calc(var(--font-base) + var(--font-size-step) * 3);
+  line-height: calc(
+    var(--font-base) + var(--font-size-step) * 3 + var(--line-height-offset)
+  );
+}
+h6 {
+  font-size: calc(var(--font-base) + var(--font-size-step) * 2);
+  line-height: calc(
+    var(--font-base) + var(--font-size-step) * 2 + var(--line-height-offset)
+  );
+}
+
+p,
+a,
+span {
+  font-size: calc(var(--font-base) + var(--font-size-step) * 1);
+  line-height: calc(
+    var(--font-base) + var(--font-size-step) * 1 + var(--line-height-offset)
+  );
+}

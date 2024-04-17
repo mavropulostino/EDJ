@@ -1,0 +1,33 @@
+.border-top{
+    border-top: 1px solid black;
+}
+
+.border-bottom{
+    border-bottom: 1px solid black;
+}
+
+.padd-block-1{
+    padding-block: 1rem;
+}
+
+.padd-block-2{
+    padding-block: 2rem;
+}
+
+*{
+    color: black !important;
+}
+
+.gap-1{
+    gap: 1rem;
+}
+
+.pos-relative{
+    position: relative;
+}
+
+span{
+    overflow: hidden;
+    width: 1.5rem;
+    height: 1.5rem;
+}

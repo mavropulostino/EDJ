@@ -1,0 +1,46 @@
+* {
+  font-size: clamp(12px, 0.5vw + 8px, 16px);
+}
+body {
+  max-width: 1920px;
+  width: 100%;
+  margin-inline: auto;
+}
+
+/* DESKTOP */
+:root {
+  --layout-grid: repeat(12, 1fr);
+  --layout-margins-yx: 10rem 8rem;
+  --layout-gap-yx: 1rem 1rem;
+}
+
+/* MOBILE */
+@media screen and (max-width: 1024px) /* and (pointer: coarse) */ {
+  :root {
+    --layout-grid: repeat(8, 1fr);
+    --layout-margins-yx: 6rem 8rem;
+    --layout-gap-yx: 1rem 1rem;
+  }
+}
+
+/* TYPO */
+:root {
+  --font-base: 1rem;
+  --font-size-step: 0.5rem;
+  --line-height-offset: 0.5rem;
+}
+/* @font-face {
+  font-family: ;
+  src: url();
+}
+@font-face {
+  font-family: ;
+  src: url();
+} */
+
+/* COLOR */
+:root {
+  --clr-primary: oklch(80%, 0.12, 8deg);
+  --clr-secondary: oklch(80%, 0.12, 16deg);
+  --clr-tertiary: oklch(80%, 0.12, 24deg);
+}
