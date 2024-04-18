@@ -14,14 +14,15 @@ Folders are structured for vite
 Use this command to clone the repo
 
 ```
-git clone https://github.com/Geshina/Osseus.git
+git clone https://github.com/Net-Nexus/Osseus
 ```
 
 css import
 
 ```
 import './osseus/CSS/_config.css'
-import './osseus/CSS/colorSchemes.css'
+import './custom/CSS/_custom.css'
+import './osseus/CSS/color.css'
 import './osseus/CSS/reset.css'
 import './osseus/CSS/structure.css'
 import './osseus/CSS/typography.css'

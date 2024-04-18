@@ -1,5 +1,11 @@
 @import '_config.css';
 
+.layout--parent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout--parent-gap);
+}
+
 .layout {
   display: grid;
   grid-template-columns: var(--layout-grid);
@@ -53,7 +59,4 @@
 }
 .justify-self-end {
   justify-self: end;
-}
-.padd-block{
-  padding-block: 1rem;
 }
