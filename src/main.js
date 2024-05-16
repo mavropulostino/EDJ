@@ -8,5 +8,13 @@ import './osseus/CSS/utility.css'
 
 import { globalEventHandler } from './osseus/JS/handlers'
 import { singleStateToggle } from './osseus/JS/state'
+import { Cart, Cleanse } from './shop'
+
+let cart = new Cart()
+let cleanse = new Cleanse(cart)
 
 globalEventHandler('click', '._faq_origin', singleStateToggle)
+globalEventHandler('click', '._cart_origin', singleStateToggle)
+globalEventHandler('click', '._product_add_origin', cleanse.addProduct)
+globalEventHandler('click', '._product_remove_origin', cleanse.removeProduct)
+
