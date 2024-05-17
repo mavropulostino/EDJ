@@ -1,80 +1,44 @@
-class Cleanse {
-  constructor(cart) {
-    this.name = 'Unnamed Cleanse'
-    this.products = []
-    this.ID = Math.random().toString(36).substring(2, 8)
-    cart.addToAll(this)
+class Product {
+  constructor(name, price) {
+    this.name = name
+    this.price = price
+    this.amount = 0
   }
-
-  addProduct = (dataObj) => {
-    const pName = dataObj.origin.name
-    const pPrice = dataObj.origin.price
-    const pMatch = this.products.find((product) => product.name === pName)
-
-    pMatch !== undefined
-      ? pMatch.amount++
-      : this.products.push({ name: pName, price: pPrice, amount: 1 })
-
-    return this
+}
+class Cart {
+  constructor(...products) {
+    this.products = products
+    this.salePercent = 0
+    this.total = this.getTotal()
   }
-
-  removeProduct = (dataObj) => {
-    const pName = dataObj.origin.name
-    const pMatch = this.products.find((product) => product.name === pName)
-    if (pMatch && pMatch.amount > 0) pMatch.amount--
-    if (pMatch.amount === 0)
-      this.products = this.products.filter((product) => product.name !== pName)
-    this.updateDOM(dataObj)
-    return this
+  addAmount = (dataObj) => {
+    const product = this.products.find((p) => p.name === dataObj.origin.name)
+    if (product) product.amount++
+    this.updateDOM()
   }
-
-  updateName = (dataObj) => {
-    const text = document.querySelector(dataObj.target.selector).textContent
-    const isValid = /^[\w\s]+$/.test(text)
-    isValid
-      ? (this.name = text)
-      : alert(
-          'Cleanse name only accepts letters, numbers, and spaces, excluding characters used in XSS attacks.'
-        )
+  removeAmount = (dataObj) => {
+    const product = this.products.find((p) => p.name === dataObj.origin.name)
+    if (product) product.amount = Math.max(0, --product.amount)
+    this.updateDOM()
   }
 
   getTotal = () => {
-    return this.products.reduce((total, product) => total + product.price, 0)
-  }
-}
-
-export { Cleanse }
-
-class Cart {
-  constructor() {
-    this.cleansesAll = []
-    this.cleansesCart = []
-    this.deliveryInfo = {}
-  }
-  addToAll = (cleanse) => {
-    this.cleansesAll.push(cleanse)
-  }
-
-  addToCart = (dataObj) => {
-    this.cleansesCart.push(
-      this.cleansesAll.find((cleanse) => cleanse.ID === dataObj.origin.id)
-    )
-    // refactor id based
-  }
-
-  removeFromCart = (dataObj) => {
-    this.cleansesCart = this.cleansesCart.filter(
-      (cleanse) => cleanse.ID !== dataObj.target.id
+    return Object.values(this.products).reduce(
+      (total, product) =>
+        total +
+        (product.amount * product.price * (100 - this.salePercent)) / 100,
+      0
     )
   }
+  updateDOM = () => {
+    const updates = [['.prod-total', this.total.toFixed(2)], []]
 
-  getDeliveryInfo = (dataObj) => {}
-
-  processCart = () => {
-    console.log(this.cleansesAll)
-    console.log(this.cleansesCart)
-    console.log(this.deliveryInfo)
+    updates.forEach(([selector, value]) => {
+      const element = document.querySelector(selector)
+      if (element) element.textContent = value
+      if (!element) alert('element not found')
+    })
   }
-}
 
-export { Cart }
+  submitCpay = () => {}
+}
