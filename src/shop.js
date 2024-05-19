@@ -43,6 +43,33 @@ class Cart {
       if (element) element.textContent = value
       if (!element) console.warn(`${selector} not found`)
     })
+
+    const cont = document.querySelector('.product-cont')
+    if (!cont) return console.warn(`${cont} not found`)
+
+    cont.innerHTML = this.products
+      .filter((product) => product.amount > 0)
+      .map(
+        ({ name, amount, total }) => `
+        <div class="flex-column justify-between">
+          <div class="flex-row justify-between">
+            <div class="flex-row gap-05">
+              <p>${amount}</p>
+              <p>${this.parseName(name)}</p>
+            </div>
+            <div class="flex-row gap-05">
+            <span class="material-symbols-outlined icon-20 _cart_origin_add"  data-name="${name}">add</span>
+            <span class="material-symbols-outlined icon-20 _cart_origin_remove"  data-name="${name}">remove</span>
+              <p>${total}</p>
+            </div>
+          </div>
+        </div>
+      `
+      )
+      .join('')
+  }
+  parseName = (name) => {
+    return name.replace(/_/g, ' ')
   }
 
   submitCpay = () => {}
@@ -50,6 +77,4 @@ class Cart {
 
 export { Product, Cart }
 
-// Preorder bonus
-// outline gmaps
 // cleanse element in dom (cart)
