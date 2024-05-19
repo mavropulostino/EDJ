@@ -1,8 +1,8 @@
 class Product {
-  constructor(name, price) {
+  constructor(name, price, amount) {
     this.name = name
     this.price = price
-    this.amount = 0
+    this.amount = amount
   }
   get total() {
     return this.amount * this.price
@@ -11,17 +11,19 @@ class Product {
 
 class Cart {
   constructor(...products) {
-    this.products = products
+    this.products = this.sessionStorageGet() || products
     this.salePercent = 0
   }
   addAmount = (dataObj) => {
     const product = this.products.find((p) => p.name === dataObj.origin.name)
     if (product) product.amount++
+    this.sessionStorageSet()
     this.updateDOM()
   }
   removeAmount = (dataObj) => {
     const product = this.products.find((p) => p.name === dataObj.origin.name)
     if (product) product.amount = Math.max(0, --product.amount)
+    this.sessionStorageSet()
     this.updateDOM()
   }
   get total() {
@@ -70,6 +72,14 @@ class Cart {
   }
   parseName = (name) => {
     return name.replace(/_/g, ' ')
+  }
+  sessionStorageSet = () => {
+    sessionStorage.setItem('cart', JSON.stringify(this.products))
+  }
+  sessionStorageGet = () => {
+    return JSON.parse(sessionStorage.getItem('cart'))?.map(
+      ({ name, price, amount }) => new Product(name, price, amount) || null
+    )
   }
 
   submitCpay = () => {}

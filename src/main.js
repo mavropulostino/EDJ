@@ -10,9 +10,10 @@ import { globalEventHandler } from './osseus/JS/handlers'
 import { singleStateToggle } from './osseus/JS/state'
 import { Product, Cart } from './shop'
 
-const morningCleanse = new Product('Morning_Cleanse', 600)
-const eveningCleanse = new Product('Evening_Cleanse', 900)
+const morningCleanse = new Product('Morning_Cleanse', 600, 0)
+const eveningCleanse = new Product('Evening_Cleanse', 900, 0)
 const cart = new Cart(morningCleanse, eveningCleanse)
+cart.updateDOM()
 
 globalEventHandler('click', '._faq_origin', singleStateToggle)
 globalEventHandler('click', '._cart_origin', singleStateToggle)
