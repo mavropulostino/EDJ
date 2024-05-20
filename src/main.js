@@ -16,4 +16,4 @@ console.log(cart)
 
 globalEventHandler('click', '._faq_origin', singleStateToggle)
 globalEventHandler('click', '._cart_origin', singleStateToggle)
-globalEventHandler('click', '._days_add', )
+globalEventHandler('click', '._days_add', cart.productDaysIncrement)
