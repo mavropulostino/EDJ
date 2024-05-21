@@ -20,20 +20,20 @@
     </div>
 
     <h6 class="font-alt border-bottom">Достави на</h6>
-    <form class=" flex-column gap-05" autocomplete="on">
+    <form id="deliveryInfo" class=" flex-column gap-05" autocomplete="on">
       <label for="full_name" title="Please enter your full name">Full Name</label>
-      <input name="full_name" type="text" class="card" required autocomplete="name">
-    
+      <input name="full_name" type="text" class="card form" required autocomplete="name">
+
       <label for="address" title="Please enter your address">Address</label>
-      <input name="address" type="text" class="card" required autocomplete="street-address">
-    
+      <input name="address" type="text" class="card form" required autocomplete="street-address">
+
       <label for="Email" title="Please enter your email address">Email</label>
-      <input name="Email" type="email" class="card" required autocomplete="email">
-    
+      <input name="Email" type="email" class="card form" required autocomplete="email">
+
       <label for="Phone" title="Please enter your phone number">Phone Number</label>
-      <input name="Phone" type="tel" class="card" required autocomplete="tel">
+      <input name="Phone" type="tel" class="card form" required autocomplete="tel">
     </form>
-    
+
 
     <h6 class="font-alt border-bottom">Checkout</h6>
 
@@ -48,7 +48,7 @@
         <p class="cart-total">Cart empty</p>
       </div>
     </div>
-    <button class="">
+    <button id="submit" data-input=".form">
       Process payment
     </button>
     <div class="flex-column gap-05 mt-auto">

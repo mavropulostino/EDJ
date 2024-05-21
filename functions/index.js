@@ -1,7 +1,8 @@
-const { onRequest, onCall } = require('firebase-functions/v2/https')
+const { onRequest } = require('firebase-functions/v2/https')
+const cors = require('cors')({ origin: 'http://localhost:5173' }) // Allow only this origin
 
-exports.helloWorld = onRequest((request, response) => {
-  response.send({
-    request: `this is what youve requested ${request.params[0]}`,
+exports.myFunction = onRequest((req, res) => {
+  cors(req, res, () => {
+    res.send('MJAU')
   })
 })
