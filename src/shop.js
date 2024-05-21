@@ -1,88 +1,84 @@
-// UTILS
-function generateID() {
-  return Math.random().toString(36).substring(2, 8)
-}
-function updateVal(context) {
-  const updateMap = [
-    ...context.cleanseRef.map(({ ID, days }) => [
-      // add mappings here
-      (`.${ID} .days`, days),
-    ]),
-  ]
-  updateMap.forEach(([selector, value]) => {
-    const element = document.querySelector(selector)
-    if (element) element.textContent = value
-    if (!element) console.warn(`${selector} not found`)
-  })
-}
-function updateTemplate(selector, template) {}
-
-function sessionSet(data) {
-  sessionStorage.setItem('data', JSON.stringify(data)) || null
-}
-function sessionGet() {
-  return JSON.parse(sessionStorage.getItem('data'))?.map(
-    ({ name, price, amount }) => new Product(name, price, amount) || null
-  )
-}
-
-class Cleanse {
-  constructor(name, priceMap) {
+class Product {
+  constructor(name, price) {
     this.name = name
-    this.days = 2
-    this.priceMap = priceMap
-    this._ID ||= generateID()
-  }
-  get ID() {
-    return this._ID
+    this.price = price
+    this.amount = 0
   }
   get total() {
-    return this.priceMap[this.days]
+    return this.amount * this.price
   }
 }
 
 class Cart {
-  constructor(...cleanseObj) {
-    this.cleanseRef = cleanseObj
-    this.cleanses = sessionGet() || []
-    this.salePercent = 15
+  constructor(...products) {
+    this.products = this.sessionStorageGet() || products
+    this.salePercent = 0
+  }
+  addAmount = (dataObj) => {
+    const product = this.products.find((p) => p.name === dataObj.origin.name)
+    if (product) product.amount = Math.min(6, ++product.amount)
+    this.sessionStorageSet()
+    this.updateDOM()
+  }
+  removeAmount = (dataObj) => {
+    const product = this.products.find((p) => p.name === dataObj.origin.name)
+    console.log(product)
+    if (product) product.amount = Math.max(0, --product.amount)
+    this.sessionStorageSet()
+    this.updateDOM()
   }
   get total() {
-    return (
-      this.cleanses.reduce((sum, cleanse) => sum + cleanse.total, 0) *
-      (1 - this.salePercent / 100)
+    return this.products.reduce(
+      (total, product) => total + product.total * (1 - this.salePercent / 100),
+      0
     )
   }
-  productDaysIncrement = (dataObj) => {
-    const cleanse = this.cleanseRef.find((cleanse) => cleanse.ID === dataObj.ID)
-    cleanse.days = Math.min(++cleanse.days, 5)
-    updateVal(this)
+
+  updateDOM = () => {
+    const updates = [
+      ...this.products.map(({ name, amount }) => [`.${name}_amount`, amount]),
+      ['.cart-total', this.total],
+      // Add more mappings here
+    ]
+    updates.forEach(([selector, value]) => {
+      const element = document.querySelector(selector)
+      if (element) element.textContent = value
+      // if (!element) console.warn(`${selector} not found`)
+    })
+
+    const cont = document.querySelector('.product-cont')
+    if (!cont) return console.warn(`${cont} not found`)
+
+    cont.innerHTML = this.products
+      .filter((product) => product.amount > 0)
+      .map(
+        ({ name, amount }) => `
+        <div class="flex-column justify-between">
+          <div class="flex-row justify-between">
+              <p>${this.parseName(name)}</p>
+            <div class="flex-row gap-05 card">
+            <span class="material-symbols-outlined icon-20 _add_amount"  data-name="${name}">add</span>
+            <p>${amount}</p>
+            <span class="material-symbols-outlined icon-20 _remove_amount"  data-name="${name}">remove</span>
+            </div>
+          </div>
+        </div>
+      `
+      )
+      .join('')
   }
-  productDaysDecrement = (dataObj) => {
-    const cleanse = this.cleanseRef.find((cleanse) => cleanse.ID === dataObj.ID)
-    cleanse.days = Math.max(--cleanse.days, 2)
-    updateVal(this)
+  parseName = (name) => {
+    return name.replace(/_/g, ' ')
   }
-  productAdd = (dataObj) => {
-    this.cleanses.push(
-      this.cleanseRef.find((cleanse) => cleanse.ID === dataObj.target.ID)
-      // update the ID of the cleanse
+  sessionStorageSet = () => {
+    sessionStorage.setItem('cart', JSON.stringify(this.products))
+  }
+  sessionStorageGet = () => {
+    return JSON.parse(sessionStorage.getItem('cart'))?.map(
+      ({ name, price, amount }) => new Product(name, price, amount) || null
     )
-    updateVal(this)
   }
-  productRemove = (dataObj) => {
-    this.cleanses = this.cleanses.filter(
-      (cleanse) => cleanse.ID !== dataObj.target.ID
-    )
-    updateVal(this)
-  }
-  inputSubmit = (dataObj) => {}
-  firestorePush = (dataObj) => {}
+
 }
 
-export { Cleanse, Cart }
-
-// connect to UI
-// manage complex elements / template
-// cPay post
-// submission refinement  
+export { Product, Cart }

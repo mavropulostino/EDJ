@@ -8,12 +8,27 @@ import './osseus/CSS/utility.css'
 
 import { globalEventHandler } from './osseus/JS/handlers'
 import { singleStateToggle } from './osseus/JS/state'
-import { Cleanse, Cart } from './shop'
+import { Cart, Product } from './shop'
 
-let signature = new Cleanse('signature', { 2: 200, 3: 300, 4: 400, 5: 500 })
-let cart = new Cart(signature)
-console.log(cart)
+let two_day_signature = new Product('Two_Day_Signature', 2000)
+let three_day_signature = new Product('Three_Day_Signature', 2850)
+let four_day_signature = new Product('Four_Day_Signature', 3600)
+///
+let two_day_immuno = new Product('Two_Day_Immuno', 1900)
+let three_day_immuno = new Product('Three_Day_Immuno', 2700)
+let four_day_immuno = new Product('Four_Day_Immuno', 3400)
+
+let cart = new Cart(
+  two_day_signature,
+  three_day_signature,
+  four_day_signature,
+  //
+  two_day_immuno,
+  three_day_immuno,
+  four_day_immuno
+)
 
 globalEventHandler('click', '._faq_origin', singleStateToggle)
 globalEventHandler('click', '._cart_origin', singleStateToggle)
-globalEventHandler('click', '._days_add', cart.productDaysIncrement)
+globalEventHandler('click', '._add_amount', cart.addAmount)
+globalEventHandler('click', '._remove_amount', cart.removeAmount)

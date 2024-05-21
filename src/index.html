@@ -20,16 +20,20 @@
     </div>
 
     <h6 class="font-alt border-bottom">Достави на</h6>
-    <form class=" flex-column gap-05">
-      <label for="address">Address</label>
-      <input name="address" type="text" class="card " required>
-
-      <label for="Email">Email</label>
-      <input name="Email" type="email" class="card " required>
-
-      <label for="Phone">Phone Number</label>
-      <input name="Phone" type="text" class="card " required>
+    <form class=" flex-column gap-05" autocomplete="on">
+      <label for="full_name" title="Please enter your full name">Full Name</label>
+      <input name="full_name" type="text" class="card" required autocomplete="name">
+    
+      <label for="address" title="Please enter your address">Address</label>
+      <input name="address" type="text" class="card" required autocomplete="street-address">
+    
+      <label for="Email" title="Please enter your email address">Email</label>
+      <input name="Email" type="email" class="card" required autocomplete="email">
+    
+      <label for="Phone" title="Please enter your phone number">Phone Number</label>
+      <input name="Phone" type="tel" class="card" required autocomplete="tel">
     </form>
+    
 
     <h6 class="font-alt border-bottom">Checkout</h6>
 
@@ -93,10 +97,10 @@
     </section>
 
     <section class="layout row-gap-4 col-gap-2">
-      <h2 class="layout--12 font-alt">Our Cleanses</h2>
+      <h2 class="layout--12 font-alt border-bottom">Signature Cleanses</h2>
 
       <img src="" alt="" class="layout--12 img-product">
-      <h3 class="layout--6 font-alt ">The Signature Package</h3>
+      <h3 class="layout--6 font-alt ">Two day signature</h3>
       <div class="layout--6 flex-column gap-4">
         <div class="grid-3">
           <p>Ginger Licking Good</p>
@@ -112,17 +116,147 @@
           Eum, neque.f
         </p>
         <div class="flex-row gap-2 align-center ">
-          <button class="_cart_origin_add" data-name="Morning_Cleanse" data-price="600">
-            Add to Cart
-          </button>
+
           <div class="card flex-row gap-05 padd-05">
-            <span class="material-symbols-outlined icon-20 _days_add">add</span>
-            <p class="cleanse-days">2</p>
-            <span class="material-symbols-outlined icon-20">remove</span>
+            <span class="material-symbols-outlined icon-20 _add_amount" data-name="Two_Day_Signature">add</span>
+            <p class="Two_Day_Signature_amount">0</p>
+            <span class="material-symbols-outlined icon-20 _remove_amount" data-name="Two_Day_Signature">remove</span>
           </div>
-          <p>900mkd</p>
+          <p>2000</p>
         </div>
       </div>
+
+      <img src="" alt="" class="layout--12 img-product">
+      <h3 class="layout--6 font-alt ">Three day signature</h3>
+      <div class="layout--6 flex-column gap-4">
+        <div class="grid-3">
+          <p>Ginger Licking Good</p>
+          <p>Limeless</p>
+          <p>Aloha Elixir</p>
+          <p>Pear Majesty</p>
+          <p>The Big Apple</p>
+          <p>Don't Skip a Beet</p>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit eos quisquam animi, labore impedit tenetur
+          deserunt dolore at earum necessitatibus, praesentium quas, architecto suscipit? Dicta inventore culpa animi?
+          Eum, neque.
+        </p>
+        <div class="flex-row gap-2 align-center ">
+
+          <div class="card flex-row gap-05 padd-05">
+            <span class="material-symbols-outlined icon-20 _add_amount" data-name="Three_Day_Signature">add</span>
+            <p class="Three_Day_Signature_amount">0</p>
+            <span class="material-symbols-outlined icon-20 _remove_amount" data-name="Three_Day_Signature">remove</span>
+          </div>
+          <p>2850</p>
+        </div>
+      </div>
+
+      <img src="" alt="" class="layout--12 img-product">
+      <h3 class="layout--6 font-alt ">Four day signature</h3>
+      <div class="layout--6 flex-column gap-4">
+        <div class="grid-3">
+          <p>Ginger Licking Good</p>
+          <p>Limeless</p>
+          <p>Aloha Elixir</p>
+          <p>Pear Majesty</p>
+          <p>The Big Apple</p>
+          <p>Don't Skip a Beet</p>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit eos quisquam animi, labore impedit tenetur
+          deserunt dolore at earum necessitatibus, praesentium quas, architecto suscipit? Dicta inventore culpa animi?
+          Eum, neque.
+        </p>
+        <div class="flex-row gap-2 align-center ">
+
+          <div class="card flex-row gap-05 padd-05">
+            <span class="material-symbols-outlined icon-20 _add_amount" data-name="Four_Day_Signature">add</span>
+            <p class="Four_Day_Signature_amount">0</p>
+            <span class="material-symbols-outlined icon-20 _remove_amount" data-name="Four_Day_Signature">remove</span>
+          </div>
+          <p>3600</p>
+        </div>
+      </div>
+
+      <h2 class="layout--12 font-alt border-bottom"></h2>
+      <img src="" alt="" class="layout--12 img-product">
+      <h3 class="layout--6 font-alt ">Two day immuno</h3>
+      <div class="layout--6 flex-column gap-4">
+        <div class="grid-3">
+          <p>Ginger Licking Good</p>
+          <p>Limeless</p>
+          <p>Aloha Elixir</p>
+          <p>Pear Majesty</p>
+          <p>The Big Apple</p>
+          <p>Don't Skip a Beet</p>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit eos quisquam animi, labore impedit tenetur
+          deserunt dolore at earum necessitatibus, praesentium quas, architecto suscipit? Dicta inventore culpa animi?
+          Eum, neque.
+        </p>
+        <div class="flex-row gap-2 align-center ">
+
+          <div class="card flex-row gap-05 padd-05">
+            <span class="material-symbols-outlined icon-20 _add_amount" data-name="Two_Day_Immuno">add</span>
+            <p class="Two_Day_Immuno_amount">0</p>
+            <span class="material-symbols-outlined icon-20 _remove_amount" data-name="Two_Day_Immuno">remove</span>
+          </div>
+          <p>1900</p>
+        </div>
+      </div>
+
+      <img src="" alt="" class="layout--12 img-product">
+      <h3 class="layout--6 font-alt ">Three day immuno</h3>
+      <div class="layout--6 flex-column gap-4">
+        <div class="grid-3">
+          <p>Ginger Licking Good</p>
+          <p>Limeless</p>
+          <p>Aloha Elixir</p>
+          <p>Pear Majesty</p>
+          <p>The Big Apple</p>
+          <p>Don't Skip a Beet</p>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit eos quisquam animi, labore impedit tenetur
+          deserunt dolore at earum necessitatibus, praesentium quas, architecto suscipit? Dicta inventore culpa animi?
+          Eum, neque.
+        </p>
+        <div class="flex-row gap-2 align-center ">
+
+          <div class="card flex-row gap-05 padd-05">
+            <span class="material-symbols-outlined icon-20 _add_amount" data-name="Three_Day_Immuno">add</span>
+            <p class="Three_Day_Immuno_amount">0</p>
+            <span class="material-symbols-outlined icon-20 _remove_amount" data-name="Three_Day_Immuno">remove</span>
+          </div>
+          <p>2700</p>
+        </div>
+      </div>
+
+      <img src="" alt="" class="layout--12 img-product">
+      <h3 class="layout--6 font-alt ">Four day immuno</h3>
+      <div class="layout--6 flex-column gap-4">
+        <div class="grid-3">
+          <p>Ginger Licking Good</p>
+          <p>Limeless</p>
+          <p>Aloha Elixir</p>
+          <p>Pear Majesty</p>
+          <p>The Big Apple</p>
+          <p>Don't Skip a Beet</p>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit eos quisquam animi, labore impedit tenetur
+          deserunt dolore at earum necessitatibus, praesentium quas, architecto suscipit? Dicta inventore culpa animi?
+          Eum, neque.
+        </p>
+        <div class="flex-row gap-2 align-center ">
+
+          <div class="card flex-row gap-05 padd-05">
+            <span class="material-symbols-outlined icon-20 _add_amount" data-name="Four_Day_Immuno">add</span>
+            <p class="Four_Day_Immuno_amount">0</p>
+            <span class="material-symbols-outlined icon-20 _remove_amount" data-name="Four_Day_Immuno">remove</span>
+          </div>
+          <p>3400</p>
+        </div>
+      </div>
+
     </section>
 
     <!-- <section class="layout">
