@@ -78,16 +78,12 @@ class Cart {
       ({ name, price, amount }) => new Product(name, price, amount) || null
     )
   }
-  processPayment = (dataObj) => {
-    const URL = 'https://helloworld-lwuscei57q-uc.a.run.app/helloWorld'
 
-    const formMap = Array.from(
-      document.querySelectorAll(dataObj.origin.input)
-    ).map((element) => {
-      return { id: element.id, value: element.value }
-    })
-
-  }
+  // formMap = Array.from(document.querySelectorAll(dataObj.origin.input)).map(
+  //   (element) => {
+  //     return { id: element.id, value: element.value }
+  //   }
+  // )
 }
 
 export { Product, Cart }

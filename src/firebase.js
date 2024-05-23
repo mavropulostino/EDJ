@@ -1,9 +1,6 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app'
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getFunctions, httpsCallable } from 'firebase/functions'
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: 'AIzaSyATWu8X589F8dcDQkXB6M3OOIkrKH2G10A',
   authDomain: 'eclat-de-jus-b3a68.firebaseapp.com',
@@ -13,5 +10,9 @@ const firebaseConfig = {
   appId: '1:603137316631:web:ebcfd2f701b94fa9acc952',
 }
 
-// Initialize Firebase
 initializeApp(firebaseConfig)
+
+// const functions = getFunctions()
+// const helloWorld = httpsCallable(functions, 'helloWorld')
+
+// helloWorld()
