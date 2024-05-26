@@ -35,23 +35,4 @@ globalEventHandler('click', '._remove_amount', cart.removeAmount)
 globalEventHandler('click', '#submit', cart.processPayment)
 
 console.log(cart.products)
-
-let data = {
-  deliveryInfo: {
-    nameForValue: 'value',
-    nameForValue: 'value',
-    nameForValue: 'value',
-  },
-  products: {
-    Product: {
-      name: 'value',
-      price: 'value',
-      amount: 'value',
-    },
-    Product: {
-      name: 'value',
-      price: 'value',
-      amount: 'value',
-    },
-  },
-}
+cart.updateDOM()

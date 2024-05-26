@@ -1,8 +1,8 @@
 class Product {
-  constructor(name, price) {
+  constructor(name, price, amount = 0) {
     this.name = name
     this.price = price
-    this.amount = 0
+    this.amount = amount
   }
   get total() {
     return this.amount * this.price
@@ -22,7 +22,6 @@ class Cart {
   }
   removeAmount = (dataObj) => {
     const product = this.products.find((p) => p.name === dataObj.origin.name)
-    console.log(product)
     if (product) product.amount = Math.max(0, --product.amount)
     this.sessionStorageSet()
     this.updateDOM()
@@ -56,7 +55,7 @@ class Cart {
         <div class="flex-column justify-between">
           <div class="flex-row justify-between">
               <p>${this.parseName(name)}</p>
-            <div class="flex-row gap-05 card">
+            <div class="flex-row gap-05 align-center card">
             <span class="material-symbols-outlined icon-20 _add_amount"  data-name="${name}">add</span>
             <p>${amount}</p>
             <span class="material-symbols-outlined icon-20 _remove_amount"  data-name="${name}">remove</span>
