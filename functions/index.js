@@ -70,7 +70,7 @@ function generateHeader(format) {
   return `${headerCount}${paramNames},${lengthFields}`
 }
 
-function generateInputString(format, key) {
+function generateInputString(format, key, header) {
   const params = [
     { name: 'AmountToPay', value: format.AmountToPay },
     { name: 'AmountCurrency', value: format.AmountCurrency },
@@ -80,13 +80,11 @@ function generateInputString(format, key) {
     { name: 'MerchantName', value: format.MerchantName },
   ]
 
-  const header = generateHeader(params)
   const values = params
     .map((param) =>
       param.value !== null && param.value !== 0 ? `${param.value}` : ''
     )
     .join('')
-
   return `${header}${values}${key}`
 }
 
@@ -97,7 +95,7 @@ function generateChecksum(inputString, key) {
 }
 
 exports.preparePayment = onCall(
-  { cors: 'https://eclatdejus.com/' },
+  { cors: 'https://eclatdejus.com' },
   (request) => {
     const key = 'TEST_PASS'
     const productMap = {
@@ -112,14 +110,15 @@ exports.preparePayment = onCall(
     let format = formatMap(details1, details2, total)
 
     nullCheck(format)
-    let inputString = generateInputString(format, key)
     let header = generateInputString(format)
+    let inputString = generateInputString(format, key, header)
     let checkSum = generateChecksum(inputString, key)
+    format.checkSum = checkSum
+
+    logger.log(format)
+
     return {
       format: format,
-      header: header,
-      inputString: inputString,
-      checkSum: checkSum,
     }
   }
 )

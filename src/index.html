@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EDJ Home</title>
+  <title>Eclat de jus | Почетна</title>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <script src="main.js" type="module"></script>
@@ -13,43 +13,43 @@
 <body class="layout--parent">
 
   <div class="cart flex-column gap-2 _cart_target padd-2" data-state="inactive">
-    <h5 class="font-alt border-bottom">Your Cart</h5>
+    <h5 class="font-alt border-bottom">Вашата кошничка</h5>
 
     <div class="flex-column justify-between gap-1 product-cont">
-      <p>No products in cart</p>
+      <p>Нема продукти</p>
     </div>
 
     <h6 class="font-alt border-bottom">Достави на</h6>
     <form id="deliveryInfo" class=" flex-column gap-05" autocomplete="on">
-      <label for="full_name" title="Please enter your full name">Full Name</label>
+      <label for="full_name" title="Please enter your full name">Име и Презиме</label>
       <input name="full_name" type="text" class="card form" required autocomplete="name">
 
-      <label for="address" title="Please enter your address">Address</label>
+      <label for="address" title="Please enter your address">Адреса</label>
       <input name="address" type="text" class="card form" required autocomplete="street-address">
 
-      <label for="Email" title="Please enter your email address">Email</label>
+      <label for="Email" title="Please enter your email address">Е-мејл</label>
       <input name="Email" type="email" class="card form" required autocomplete="email">
 
-      <label for="Phone" title="Please enter your phone number">Phone Number</label>
+      <label for="Phone" title="Please enter your phone number">Телефонски Број</label>
       <input name="Phone" type="tel" class="card form" required autocomplete="tel">
     </form>
 
 
-    <h6 class="font-alt border-bottom">Checkout</h6>
+    <h6 class="font-alt border-bottom">За Исплата</h6>
 
     <div class="flex-column gap-05">
       <div class="flex-row justify-between">
-        <p>Delivery</p>
-        <p>Free delivery</p>
+        <p>Достава</p>
+        <p>Бесплатна достава</p>
       </div>
 
       <div class="flex-row justify-between">
-        <p>Total</p>
+        <p>Вкупно</p>
         <p class="cart-total">Cart empty</p>
       </div>
     </div>
     <button id="proxyProcess" data-input=".form">
-      Process payment
+      Нарачајте
     </button>
     <div class="flex-column gap-05 mt-auto">
       <a>Contact support</a>
@@ -59,18 +59,20 @@
 
   <div class="overlay _cart_target _cart_origin" data-sst="._cart_target" data-state="inactive"></div>
   <header class="layout flex-row border-bottom justify-between padd-blc-1 align-center pos-fixed z-2">
-    <h6 class="font-alt">Eclat de Jus</h6>
+    <a href="/">
+      <h6 class="font-alt">Eclat de Jus</h6>
+    </a>
 
     <div class="flex-row gap-2">
-      <a href="index.html" class="bold">Home</a>
+      <a href="/" class="bold">Почетна</a>
 
-      <a href="juices.html" class="bold">Juices</a>
+      <a href="/juices" class="bold">Сокови</a>
 
-      <a href="learn.html" class="bold">Learn</a>
+      <a href="/learn" class="bold">//</a>
     </div>
 
     <button class=" _cart_origin" data-target="._cart_target" data-sst="._cart_target">
-      Cart
+      <p class="mobile-hidden">Кошничка</p>
       <span class="material-symbols-outlined icon-24 ">shopping_bag</span>
     </button>
   </header>
@@ -96,11 +98,11 @@
 
     </section>
 
-    <section class="layout row-gap-4 col-gap-2">
+    <section class="layout row-gap-4 col-gap-2" id="cleanse-scroll">
       <h2 class="layout--12 font-alt border-bottom">Signature Cleanses</h2>
 
       <img src="" alt="" class="layout--12 img-product">
-      <h3 class="layout--6 font-alt ">Two day signature</h3>
+      <h3 class="layout--6 font-alt ">Дводневен Пакет</h3>
       <div class="layout--6 flex-column gap-4">
         <div class="grid-3">
           <p>Ginger Licking Good</p>
@@ -127,7 +129,7 @@
       </div>
 
       <img src="" alt="" class="layout--12 img-product">
-      <h3 class="layout--6 font-alt ">Three day signature</h3>
+      <h3 class="layout--6 font-alt ">Тридневен Пакет</h3>
       <div class="layout--6 flex-column gap-4">
         <div class="grid-3">
           <p>Ginger Licking Good</p>
@@ -153,7 +155,7 @@
       </div>
 
       <img src="" alt="" class="layout--12 img-product">
-      <h3 class="layout--6 font-alt ">Four day signature</h3>
+      <h3 class="layout--6 font-alt ">Четиридневен Пакет</h3>
       <div class="layout--6 flex-column gap-4">
         <div class="grid-3">
           <p>Ginger Licking Good</p>
@@ -180,7 +182,7 @@
 
       <h2 class="layout--12 font-alt border-bottom">Immuno Cleanses</h2>
       <img src="" alt="" class="layout--12 img-product">
-      <h3 class="layout--6 font-alt ">Two day immuno</h3>
+      <h3 class="layout--6 font-alt ">Дводневен Пакет</h3>
       <div class="layout--6 flex-column gap-4">
         <div class="grid-3">
           <p>Ginger Licking Good</p>
@@ -206,7 +208,7 @@
       </div>
 
       <img src="" alt="" class="layout--12 img-product">
-      <h3 class="layout--6 font-alt ">Three day immuno</h3>
+      <h3 class="layout--6 font-alt ">Тридневен Пакет</h3>
       <div class="layout--6 flex-column gap-4">
         <div class="grid-3">
           <p>Ginger Licking Good</p>
@@ -232,7 +234,7 @@
       </div>
 
       <img src="" alt="" class="layout--12 img-product">
-      <h3 class="layout--6 font-alt ">Four day immuno</h3>
+      <h3 class="layout--6 font-alt ">Четиридневен Пакет</h3>
       <div class="layout--6 flex-column gap-4">
         <div class="grid-3">
           <p>Ginger Licking Good</p>
@@ -308,98 +310,129 @@
 
     <section class="layout gap-4">
       <div class="layout--12">
-        <h6>Frequently asked questions</h6>
-        <h2 class="font-alt">Your Questions Answered</h2>
+        <h6>Често Поставувани Прашања</h6>
+        <h2 class="font-alt">Што Можеме Да Ви Одговориме</h2>
       </div>
 
       <div class="layout--12 flex-column flex-wrap border-top">
         <div class="padd-blc-2 flex-column gap-2 border-bottom _faq_origin" data-target="._faq_target" data-sst="#one">
           <div class="flex-row">
-            <h6>Lorem ipsum dolor sit.</h6>
+            <h6>Како да нарачам и за колку време ќе ми пристигне нарачката?</h6>
             <span class="material-symbols-outlined icon-48 push-right ">add</span>
           </div>
           <p id="one" class="_faq_target" data-state="inactive">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti
-            fugiat, eius voluptates numquam quae tempora officia quo, autem
-            atque a placeat, hic qui velit cupiditate voluptatibus alias eum.
-            Aspernatur, minus?
-          </p>
+            Процесот на нарачка е многу едноставен и лесен. Сè што треба да направите е да отидете на нашата
+            веб-страница, да го одберете пакетот кој Вас најмногу Ви одговара и да ја направите нарaчката. Пакетот со
+            свежи и органски сокчиња ќе пристине на Вашата адреса.
         </div>
 
         <div class="padd-blc-2 flex-column gap-2 border-bottom _faq_origin" data-target="._faq_target" data-sst="#two">
           <div class="flex-row">
-            <h6>Lorem ipsum dolor sit.</h6>
+            <h6>Што е детоксикација?</h6>
             <span class="material-symbols-outlined icon-48 push-right">add</span>
           </div>
           <p id="two" class="_faq_target" data-state="inactive">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti
-            fugiat, eius voluptates numquam quae tempora officia quo, autem
-            atque a placeat, hic qui velit cupiditate voluptatibus alias eum.
-            Aspernatur, minus?
+            Деткосикација е прочистување на организмот од токсините. Нашето тело секојдневно има за задача да вари
+            храна, често станува збор за нездрава храна, храна полна со шеќери, процесирана храна... Поради ова, можеме
+            да се чувствуваме нерасположено, да имаме помалку енергија, да страдаме од несоница, да чувствуваме болка во
+            мускулите или ред други непогодности.
+            Детоксикацијата е решение на овој проблем. Преку овој процес, ние го чистиме нашето тело од штетните
+            токсини, пестициди и останатите токсични материи. Освен преку храната, овие непосакувани елементи влегуваат
+            во нашето тело и преку воздухот, лековите, козметичките производи и многу друго.
           </p>
         </div>
 
         <div class="padd-blc-2 flex-column gap-2 border-bottom _faq_origin" data-target="._faq_target"
           data-sst="#three">
           <div class="flex-row">
-            <h6>Lorem ipsum dolor sit.</h6>
+            <h6>Колку долго трае процесот на детоксикација?</h6>
             <span class="material-symbols-outlined icon-48 push-right">add</span>
           </div>
           <p id="three" class="_faq_target" data-state="inactive">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti
-            fugiat, eius voluptates numquam quae tempora officia quo, autem
-            atque a placeat, hic qui velit cupiditate voluptatibus alias eum.
-            Aspernatur, minus?
+
+            Éclat de Jus нуди пакети за детоксикација од 2, 3 и 4 дена. Нашите пакети се состојат од сокови направени по
+            специјален рецепт со цел да го прочистат Вашиот организам од сите штетни токсини и несакани материи.
           </p>
+        </div>
+
+        <div class="padd-blc-2 flex-column gap-2 border-bottom _faq_origin" data-target="._faq_target" data-sst="#four">
+          <div class="flex-row">
+            <h6>Што можам да јадам додека трае процесот на детоксикација и колку вода треба да конзумирам?</h6>
+            <span class="material-symbols-outlined icon-48 push-right">add</span>
+          </div>
+          <p id="four" class="_faq_target" data-state="inactive">
+            Соковите на Éclat de Jus се направени со цел да бидат доволно нутритивни да можете да го поминете денот само
+            на нив, но сфаќаме дека тоа може да биде тешко за многу луѓе, па затоа при процесот на деткосикација,
+            препорачано е да се конзумира нискокалорична и органска храна. Овошјето и зеленчукот се секогаш одличен
+            избор, како и храна која e природно богата со јаглехидрати. Свежо овошје, проследено со овошните сокови
+            Éclat de Jus ќе му дојде како ,,кец на десетка“ на Вашиот организам, а зеленчукот можете да го јадете свежо
+            или варено. Компирите пак се вистинско решение за внесување на јаглехидрати.
+            Додека трае процесот на детоксикација, целосно ќе треба да раскрстите со шеќерот, процесираната храна и
+            храната која содржи премногу сол.
+            Количеството на вода кое треба да го внесувате зависи од Вашата килажа, физичка активност и низа други
+            околности, но како добра мерка за количество на вода кое треба да го конзумирате при процесот на
+            детоксикација е од 2 до 3 литра дневно, односн
+          </p>
+        </div>
+
+        <div class="padd-blc-2 flex-column gap-2 border-bottom _faq_origin" data-target="._faq_target" data-sst="#five">
+          <div class="flex-row">
+            <h6>Тренирање и физичка активност при детоксикација</h6>
+            <span class="material-symbols-outlined icon-48 push-right">add</span>
+          </div>
+          <p id="five" class="_faq_target" data-state="inactive">При процесот на детоксикација можете да бидете физички
+            активни, но во деновите кога Вашиот организам се чисти од непосакувани материи, најдобро е да не се
+            форсирате физички и да не вежбате тешки вежби. При детоксикација, се препорачува да одморите од напорен
+            тренинг и наместо тоа да практикувате јога или да одите на релаксирачка прошетка.</p>
         </div>
       </div>
     </section>
 
     <section class="layout">
-      <h2 class="layout--6 font-alt">What are you waiting for,</h2>
+      <h2 class="layout--6 font-alt">Подготвени за детоксикација?</h2>
 
-      <div class="layout--6 hide-mobile"></div>
-      <div class="layout--6 hide-mobile"></div>
+      <div class="layout--6 mobile-hidden"></div>
+      <div class="layout--6 mobile-hidden"></div>
 
-      <h2 class="layout--6 font-alt">Grab a smoothie now</h2>
+      <h2 class="layout--6 font-alt">Започнете веднаш!</h2>
 
       <img class="layout--4" src="/images/noah-buscher-8A7fD6Y5VF8-unsplash.jpg" alt="" />
 
       <div class="layout--2"></div>
 
       <div class="layout--6 flex-column gap-2 padd-blc-4">
-        <a href="#designer">
-          <h5 class="border-bottom inline">Cleanse Designer</h5>
+        <a href="#cleanse-scroll">
+          <h5 class="border-bottom inline">Одбери Пакет</h5>
         </a>
-        <a href="/src/juices.html">
-          <h5 class="border-bottom inline">Learn About Juices</h5>
+        <a href="/learn">
+          <h5 class="border-bottom inline">//Постапка</h5>
         </a>
       </div>
     </section>
 
     <footer class="layout padd-blc-4 border-top">
       <h5 class="layout--4">
-        Lorem ipsum dolor sit, amet consectetur adipis icing elit. Expedita,
-        mollitia.
+        //
+        Патот од збогувањето со конфор зоната кон започнувањето на ново, здраво поглавје е трнлив и знае да биде тежок,
+        но Éclat de Jus е тука за Вас. Заедно ќе Ви помогнеме да ја постигнете Вашата цел. На трнливот пат, Éclat de Jus
+        се ножичките кои ќе Ви помогнат да ги исечете трњата и непречно да чекорите до посакуваната дестинација
       </h5>
 
-      <span class="layout--2"> </span>
+      <div class="layout--2 mobile-hidden"> </div>
 
       <div class="layout--2 flex-column gap-05">
-        <h6>Navigation</h6>
+        <h6>Навигација</h6>
 
-        <a> Home </a>
-        <a> Juices </a>
-        <a> Cleanses </a>
-        <a> Cart </a>
+        <a href="/">Почетна</a>
+        <a href="/juices">Сокови</a>
+        <a href="/learn">// </a>
       </div>
 
       <div class="layout--2 flex-column gap-05">
-        <h6>Links</h6>
+        <h6>Линкови</h6>
 
-        <a> Instagram </a>
-        <a> Facebook </a>
-        <a> Linkedin </a>
+        <a href="https://www.instagram.com/eclatdejus/"> Instagram </a>
+        <a href="/privacy-policy"> Privacy Policy </a>
       </div>
     </footer>
   </main>

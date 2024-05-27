@@ -1,5 +1,4 @@
 import { initializeApp } from 'firebase/app'
-import firebase from 'firebase/compat/app'
 import { getFunctions, httpsCallable } from 'firebase/functions'
 
 const firebaseConfig = {
@@ -17,8 +16,7 @@ async function preparePayment(req) {
   try {
     const processRef = httpsCallable(getFunctions(), 'preparePayment')
     const response = await processRef(req)
-    console.log(response.data.format)
-    return response.data.format
+    return response.data
   } catch (error) {
     console.log(error)
   }

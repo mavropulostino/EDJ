@@ -80,52 +80,46 @@ class Cart {
     )
   }
   proxyRequest = async () => {
-    const mockData = [
-      { name: 'Product1', amount: 2 },
-      { name: 'Product2', amount: 3 },
-    ]
-
-    const response = await preparePayment({ products: mockData })
-
-    // Create and populate the form element
-    const form = document.createElement('form')
-    form.method = 'POST'
-    form.action =
-      'https://www.cpay.com.mk/client/Page/default.aspx?xml_id=/mk-MK/.loginToPay/.simple/'
-
-    // Function to create hidden inputs
-    const createHiddenInput = (name, value) => {
-      const input = document.createElement('input')
-      input.type = 'hidden'
-      input.name = name
-      input.value = value
-      return input
+    let mockProducts = [{ name: 'Product1', amount: 1 }]
+    let response = null
+    try {
+      response = await preparePayment({ products: mockProducts })
+    } catch (error) {
+      console.log(error)
     }
 
-    // Append response data to the form as hidden inputs
-    Object.entries(response).forEach(([key, value]) => {
-      form.appendChild(createHiddenInput(key, value))
+    console.log(response)
+
+    const formData = new FormData()
+    Object.entries(response.format).forEach(([key, value]) => {
+      formData.append(key, value)
     })
 
-    // Append additional required hidden inputs
-    const additionalInputs = {
-      AmountToPay: '5000',
-      AmountCurrency: 'MKD',
-      Details1: 'Invoice',
-      Details2: '99',
-      PayToMerchant: '123745',
-      MerchantName: 'MerchantSample',
-      PaymentOKURL: 'http://sampleeshop/eshopOK.html',
-      PaymentFailURL: 'http://sampleeshop/eshopCancel.html',
+    // console.log(formData)
+    // Array.from(formData).forEach(([key, value]) => {
+    //   console.log(key, value)
+    // })
+
+    const merchantUrl = 'https://eclatdejus.com'
+    const headers = new Headers()
+    headers.append('Referer', merchantUrl)
+
+    try {
+      const response = await fetch(
+        'https://www.cpay.com.mk/client/Page/default.aspx?xml_id=/mk-MK/.loginToPay/.simple/',
+        {
+          method: 'POST',
+          body: formData,
+          headers: headers,
+        }
+      )
+      console.log(response.text())
+      if (!response.ok) {
+        throw new Error(response.status + ' ' + response.statusText)
+      }
+    } catch (error) {
+      console.error('There was a problem with the payment request:', error)
     }
-
-    Object.entries(additionalInputs).forEach(([key, value]) => {
-      form.appendChild(createHiddenInput(key, value))
-    })
-
-    // Append the form to the body and submit it
-    document.body.appendChild(form)
-    form.submit()
   }
 }
 
