@@ -1,3 +1,5 @@
+import { preparePayment } from './firebase'
+
 class Product {
   constructor(name, price, amount = 0) {
     this.name = name
@@ -77,12 +79,54 @@ class Cart {
       ({ name, price, amount }) => new Product(name, price, amount) || null
     )
   }
+  proxyRequest = async () => {
+    const mockData = [
+      { name: 'Product1', amount: 2 },
+      { name: 'Product2', amount: 3 },
+    ]
 
-  // formMap = Array.from(document.querySelectorAll(dataObj.origin.input)).map(
-  //   (element) => {
-  //     return { id: element.id, value: element.value }
-  //   }
-  // )
+    const response = await preparePayment({ products: mockData })
+
+    // Create and populate the form element
+    const form = document.createElement('form')
+    form.method = 'POST'
+    form.action =
+      'https://www.cpay.com.mk/client/Page/default.aspx?xml_id=/mk-MK/.loginToPay/.simple/'
+
+    // Function to create hidden inputs
+    const createHiddenInput = (name, value) => {
+      const input = document.createElement('input')
+      input.type = 'hidden'
+      input.name = name
+      input.value = value
+      return input
+    }
+
+    // Append response data to the form as hidden inputs
+    Object.entries(response).forEach(([key, value]) => {
+      form.appendChild(createHiddenInput(key, value))
+    })
+
+    // Append additional required hidden inputs
+    const additionalInputs = {
+      AmountToPay: '5000',
+      AmountCurrency: 'MKD',
+      Details1: 'Invoice',
+      Details2: '99',
+      PayToMerchant: '123745',
+      MerchantName: 'MerchantSample',
+      PaymentOKURL: 'http://sampleeshop/eshopOK.html',
+      PaymentFailURL: 'http://sampleeshop/eshopCancel.html',
+    }
+
+    Object.entries(additionalInputs).forEach(([key, value]) => {
+      form.appendChild(createHiddenInput(key, value))
+    })
+
+    // Append the form to the body and submit it
+    document.body.appendChild(form)
+    form.submit()
+  }
 }
 
 export { Product, Cart }

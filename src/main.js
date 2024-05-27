@@ -33,6 +33,7 @@ globalEventHandler('click', '._cart_origin', singleStateToggle)
 globalEventHandler('click', '._add_amount', cart.addAmount)
 globalEventHandler('click', '._remove_amount', cart.removeAmount)
 globalEventHandler('click', '#submit', cart.processPayment)
+globalEventHandler('click', '#proxyProcess', cart.proxyRequest)
 
 console.log(cart.products)
 cart.updateDOM()

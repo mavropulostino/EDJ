@@ -96,27 +96,30 @@ function generateChecksum(inputString, key) {
   return md5Hash
 }
 
-exports.processPayment = onCall({ cors: true }, (request) => {
-  const key = 'TEST_PASS'
-  const productMap = {
-    Product2: 20,
-    Product1: 10,
-  }
+exports.preparePayment = onCall(
+  { cors: 'https://eclatdejus.com/' },
+  (request) => {
+    const key = 'TEST_PASS'
+    const productMap = {
+      Product2: 20,
+      Product1: 10,
+    }
 
-  let cleanData = sanitize(request.data)
-  let total = getTotal(cleanData, productMap)
-  let details1 = genDetails1(cleanData)
-  let details2 = genDetails2(cleanData)
-  let format = formatMap(details1, details2, total)
+    let cleanData = sanitize(request.data)
+    let total = getTotal(cleanData, productMap)
+    let details1 = genDetails1(cleanData)
+    let details2 = genDetails2(cleanData)
+    let format = formatMap(details1, details2, total)
 
-  nullCheck(format)
-  let inputString = generateInputString(format, key)
-  let header = generateInputString(format)
-  let checkSum = generateChecksum(inputString, key)
-  return {
-    format: format,
-    header: header,
-    inputString: inputString,
-    checkSum: checkSum,
+    nullCheck(format)
+    let inputString = generateInputString(format, key)
+    let header = generateInputString(format)
+    let checkSum = generateChecksum(inputString, key)
+    return {
+      format: format,
+      header: header,
+      inputString: inputString,
+      checkSum: checkSum,
+    }
   }
-})
+)
