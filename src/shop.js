@@ -102,7 +102,8 @@ class Cart {
 
     const form = document.createElement('form')
     form.method = 'post'
-    form.action = 'https: //eclatdejus.com'
+    form.action =
+      'https://www.cpay.com.mk/client/Page/default.aspx?xml_id=/mk-MK/.loginToPay/.simple/'
     // Use Object.entries to iterate over object properties
     Object.entries(formData).forEach(([key, value]) => {
       const input = document.createElement('input')
