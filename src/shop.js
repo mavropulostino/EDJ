@@ -100,26 +100,20 @@ class Cart {
     //   console.log(key, value)
     // })
 
-    const merchantUrl = 'https://eclatdejus.com'
-    const headers = new Headers()
-    headers.append('Referer', merchantUrl)
+    const form = document.createElement('form')
+    form.method = 'post'
+    form.action = 'https: //eclatdejus.com'
+    // Use Object.entries to iterate over object properties
+    Object.entries(formData).forEach(([key, value]) => {
+      const input = document.createElement('input')
+      input.type = 'hidden'
+      input.name = key
+      input.value = value
+      form.appendChild(input)
+    })
 
-    try {
-      const response = await fetch(
-        'https://www.cpay.com.mk/client/Page/default.aspx?xml_id=/mk-MK/.loginToPay/.simple/',
-        {
-          method: 'POST',
-          body: formData,
-          headers: headers,
-        }
-      )
-      console.log(response.text())
-      if (!response.ok) {
-        throw new Error(response.status + ' ' + response.statusText)
-      }
-    } catch (error) {
-      console.error('There was a problem with the payment request:', error)
-    }
+    document.body.appendChild(form)
+    form.submit()
   }
 }
 
