@@ -149,7 +149,7 @@ exports.paymentSuccess = onRequest({ cors: true }, (req, res) => {
   //   path: req.path,
   //   body: req.body,
   // }
-  if (req.headers.origin !== 'https://www.cpay.com.mk') res.status(403).send()
+  // if (req.headers.origin !== 'https://www.cpay.com.mk') res.status(403).send()
   res.status(200).redirect('https://eclatdejus.com/?success').send()
 })
 exports.paymentFail = onRequest({ cors: true }, (req, res) => {
