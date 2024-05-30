@@ -1,8 +1,9 @@
 import { preparePayment } from './firebase'
 
 class Product {
-  constructor(name, price, amount = 0) {
+  constructor(name, cyrName, price, amount = 0) {
     this.name = name
+    this.cyrName = cyrName
     this.price = price
     this.amount = amount
   }
@@ -53,10 +54,10 @@ class Cart {
     cont.innerHTML = this.products
       .filter((product) => product.amount > 0)
       .map(
-        ({ name, amount }) => `
+        ({ name, cyrName, amount }) => `
         <div class="flex-column justify-between">
           <div class="flex-row justify-between">
-              <p>${this.parseName(name)}</p>
+              <p>${cyrName}</p>
             <div class="flex-row gap-05 align-center card">
             <span class="material-symbols-outlined icon-20 _add_amount"  data-name="${name}">add</span>
             <p>${amount}</p>
@@ -68,53 +69,111 @@ class Cart {
       )
       .join('')
   }
-  parseName = (name) => {
-    return name.replace(/_/g, ' ')
-  }
   sessionStorageSet = () => {
     sessionStorage.setItem('cart', JSON.stringify(this.products))
   }
   sessionStorageGet = () => {
     return JSON.parse(sessionStorage.getItem('cart'))?.map(
-      ({ name, price, amount }) => new Product(name, price, amount) || null
+      ({ name, cyrName, price, amount }) =>
+        new Product(name, cyrName, price, amount) || null
     )
   }
-  proxyRequest = async () => {
-    let mockProducts = [{ name: 'Product1', amount: 1 }]
+
+  checkForm = (dataObj) => {
+    const errorMessages = {
+      full_name: 'Внесете име и презиме',
+      Address: 'Внесете ја вашата адреса',
+      Email: 'Внесете ја вашата е-мејл адреса',
+      Phone: 'Внесете го вашиот телефонски број',
+    }
+    const form = document.querySelector(dataObj.target.selector)
+    const formArr = Array.from(form.elements).map((input) => ({
+      name: input.name,
+      value: input.value.trim(),
+      errorMsg: errorMessages[input.name] || null,
+      target: document.querySelector(`label[for="${input.name}"]`),
+    }))
+
+    let hasError = false
+
+    formArr.forEach((inputObj) => {
+      if (inputObj.value === '' && inputObj.errorMsg) {
+        inputObj.target.textContent = inputObj.errorMsg
+        inputObj.target.classList.add('error-red')
+        hasError = true
+      }
+    })
+
+    return !hasError
+  }
+  mapForm = () => {
+    return Array.from(document.querySelector('#deliveryInfo').elements).reduce(
+      (acc, input) => {
+        if (input.name) {
+          acc[input.name] = input.value.trim()
+        }
+        return acc
+      },
+      {}
+    )
+  }
+
+  proxyRequest = async (dataObj) => {
+    // Checks
+    // if (this.products.some((product) => !product.amount)) {
+    //   console.log(product)
+    //   document.querySelector('._global_error').textContent =
+    //     'Немате продукти во кошничка'
+    //   return false
+    // }
+    let formStatus = this.checkForm(dataObj)
+    if (formStatus == false) {
+      document.querySelector('._global_error').textContent =
+        'Потребно е сите полиња да се пополнfети'
+      return
+    }
+
+    // products
     let response = null
+    // console.log(this.mapForm())
+    // console.log(this.products)
     try {
-      response = await preparePayment({ products: mockProducts })
+      response = await preparePayment({
+        products: this.products,
+        form: this.mapForm(),
+      })
+      console.log(response)
     } catch (error) {
       console.log(error)
     }
 
-    console.log(response)
+    const orderedKeys = [
+      'AmountToPay',
+      'PayToMerchant',
+      'MerchantName',
+      'AmountCurrency',
+      'Details1',
+      'Details2',
+      'PaymentFailURL',
+      'PaymentOKURL',
+      'CheckSumHeader',
+      'CheckSum',
+      'Address',
+      'Telephone',
+      'Email',
+    ]
 
-    const formData = new FormData()
-    Object.entries(response.format).forEach(([key, value]) => {
-      formData.append(key, value)
+    let formHtml =
+      '<form action="https://www.cpay.com.mk/client/Page/default.aspx?xml_id=/mk-MK/.loginToPay/.simple/" method="post" id="paymentForm">'
+    orderedKeys.forEach((key) => {
+      if (!response.format[key]) console.warn(`Form data doesnt contain ${key}`)
+      formHtml += `<input type="hidden" name="${key}" value="${response.format[key]}" />`
     })
 
-    // console.log(formData)
-    // Array.from(formData).forEach(([key, value]) => {
-    //   console.log(key, value)
-    // })
-
-    const form = document.createElement('form')
-    form.method = 'post'
-    form.action =
-      'https://www.cpay.com.mk/client/Page/default.aspx?xml_id=/mk-MK/.loginToPay/.simple/'
-    // Use Object.entries to iterate over object properties
-    Object.entries(formData).forEach(([key, value]) => {
-      const input = document.createElement('input')
-      input.type = 'hidden'
-      input.name = key
-      input.value = value
-      form.appendChild(input)
-    })
-
-    document.body.appendChild(form)
-    form.submit()
+    formHtml += '<button type="submit">Pay</button></form>'
+    document.body.insertAdjacentHTML('beforeend', formHtml)
+    console.log(formHtml)
+    document.getElementById('paymentForm').submit()
   }
 }
 

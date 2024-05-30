@@ -24,8 +24,8 @@
       <label for="full_name" title="Please enter your full name">Име и Презиме</label>
       <input name="full_name" type="text" class="card form" required autocomplete="name">
 
-      <label for="address" title="Please enter your address">Адреса</label>
-      <input name="address" type="text" class="card form" required autocomplete="street-address">
+      <label for="Address" title="Please enter your address">Адреса</label>
+      <input name="Address" type="text" class="card form" required autocomplete="street-address">
 
       <label for="Email" title="Please enter your email address">Е-мејл</label>
       <input name="Email" type="email" class="card form" required autocomplete="email">
@@ -45,12 +45,13 @@
 
       <div class="flex-row justify-between">
         <p>Вкупно</p>
-        <p class="cart-total">Cart empty</p>
+        <p class="cart-total mkd-suffix">Cart empty</p>
       </div>
     </div>
-    <button id="proxyProcess" data-input=".form">
-      Нарачајте
+    <button id="proxyProcess" data-input=".form" data-target="#deliveryInfo">
+      Платете со cPay
     </button>
+    <p class="_global_error error-red"></p>
     <div class="flex-column gap-05 mt-auto">
       <a>Contact support</a>
       <a>Privacy policy</a>
@@ -66,9 +67,9 @@
     <div class="flex-row gap-2">
       <a href="/" class="bold">Почетна</a>
 
-      <a href="/juices" class="bold">Сокови</a>
+      <a href="./juices" class="bold">Сокови</a>
 
-      <a href="/learn" class="bold">//</a>
+      <a href="./learn" class="bold">//</a>
     </div>
 
     <button class=" _cart_origin" data-target="._cart_target" data-sst="._cart_target">
@@ -82,13 +83,11 @@
       <img class="layout--8"></img>
 
       <div class="layout--4 flex-column gap-1 padd-1 card">
-        <h4 class="font-alt ">Lorem ipsum dolor sit amet.</h4>
+        <h3 class="font-alt border-bottom "> Éclat de Jus – Свежи и органски сокови за целосна детоксикација</h3>
 
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-          voluptatibus sed beatae mollitia magni quod temporibus voluptas quae
-          architecto saepe.
-        </p>
+        <p>Високовитамински сокови спакувани во еко-пакети за целосен ,,ресет“ на Вашиот организам. Éclat de Jus
+          соковите се нектар на свежина, на нова виталност. Прочистете го телото од штетни материи и уживајте во новиот
+          порив – живејте со полна пареа и со нова енергија. Достава низ цела Македонија</p>
 
         <!-- <button>
           Add to Cleanse
@@ -124,7 +123,7 @@
             <p class="Two_Day_Signature_amount">0</p>
             <span class="material-symbols-outlined icon-20 _remove_amount" data-name="Two_Day_Signature">remove</span>
           </div>
-          <p>2000</p>
+          <p class="mkd-suffix">2000</p>
         </div>
       </div>
 
@@ -150,7 +149,7 @@
             <p class="Three_Day_Signature_amount">0</p>
             <span class="material-symbols-outlined icon-20 _remove_amount" data-name="Three_Day_Signature">remove</span>
           </div>
-          <p>2850</p>
+          <p class="mkd-suffix">2850</p>
         </div>
       </div>
 
@@ -176,7 +175,7 @@
             <p class="Four_Day_Signature_amount">0</p>
             <span class="material-symbols-outlined icon-20 _remove_amount" data-name="Four_Day_Signature">remove</span>
           </div>
-          <p>3600</p>
+          <p class="mkd-suffix">3600</p>
         </div>
       </div>
 
@@ -203,7 +202,7 @@
             <p class="Two_Day_Immuno_amount">0</p>
             <span class="material-symbols-outlined icon-20 _remove_amount" data-name="Two_Day_Immuno">remove</span>
           </div>
-          <p>1900</p>
+          <p class="mkd-suffix">1900</p>
         </div>
       </div>
 
@@ -229,7 +228,7 @@
             <p class="Three_Day_Immuno_amount">0</p>
             <span class="material-symbols-outlined icon-20 _remove_amount" data-name="Three_Day_Immuno">remove</span>
           </div>
-          <p>2700</p>
+          <p class="mkd-suffix">2700</p>
         </div>
       </div>
 
@@ -255,7 +254,7 @@
             <p class="Four_Day_Immuno_amount">0</p>
             <span class="material-symbols-outlined icon-20 _remove_amount" data-name="Four_Day_Immuno">remove</span>
           </div>
-          <p>3400</p>
+          <p class="mkd-suffix">3400</p>
         </div>
       </div>
 
@@ -404,7 +403,7 @@
         <a href="#cleanse-scroll">
           <h5 class="border-bottom inline">Одбери Пакет</h5>
         </a>
-        <a href="/learn">
+        <a href="./learn">
           <h5 class="border-bottom inline">//Постапка</h5>
         </a>
       </div>
@@ -424,8 +423,8 @@
         <h6>Навигација</h6>
 
         <a href="/">Почетна</a>
-        <a href="/juices">Сокови</a>
-        <a href="/learn">// </a>
+        <a href="./juices">Сокови</a>
+        <a href="./learn">// </a>
       </div>
 
       <div class="layout--2 flex-column gap-05">

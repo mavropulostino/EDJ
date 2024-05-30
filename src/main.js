@@ -10,13 +10,29 @@ import { globalEventHandler } from './osseus/JS/handlers'
 import { singleStateToggle } from './osseus/JS/state'
 import { Cart, Product } from './shop'
 
-let two_day_signature = new Product('Two_Day_Signature', 2000)
-let three_day_signature = new Product('Three_Day_Signature', 2850)
-let four_day_signature = new Product('Four_Day_Signature', 3600)
+let two_day_signature = new Product(
+  'Two_Day_Signature',
+  'Дводневен signature',
+  2000
+)
+let three_day_signature = new Product(
+  'Three_Day_Signature',
+  'Тридневен signature',
+  2850
+)
+let four_day_signature = new Product(
+  'Four_Day_Signature',
+  'Четиридневен signature',
+  3600
+)
 ///
-let two_day_immuno = new Product('Two_Day_Immuno', 1900)
-let three_day_immuno = new Product('Three_Day_Immuno', 2700)
-let four_day_immuno = new Product('Four_Day_Immuno', 3400)
+let two_day_immuno = new Product('Two_Day_Immuno', 'Дводневен immuno', 1900)
+let three_day_immuno = new Product('Three_Day_Immuno', 'Тридневен immuno', 2700)
+let four_day_immuno = new Product(
+  'Four_Day_Immuno',
+  'Четиридневен immuno',
+  3400
+)
 
 let cart = new Cart(
   two_day_signature,
@@ -34,6 +50,4 @@ globalEventHandler('click', '._add_amount', cart.addAmount)
 globalEventHandler('click', '._remove_amount', cart.removeAmount)
 globalEventHandler('click', '#submit', cart.processPayment)
 globalEventHandler('click', '#proxyProcess', cart.proxyRequest)
-
-console.log(cart.products)
 cart.updateDOM()
