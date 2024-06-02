@@ -119,19 +119,18 @@ class Cart {
   }
 
   proxyRequest = async (dataObj) => {
-    // Checks
-    // if (this.products.some((product) => !product.amount)) {
-    //   console.log(product)
-    //   document.querySelector('._global_error').textContent =
-    //     'Немате продукти во кошничка'
-    //   return false
-    // }
+    //    Checks
     let formStatus = this.checkForm(dataObj)
     if (formStatus == false) {
       document.querySelector('._global_error').textContent =
-        'Потребно е сите полиња да се пополнfети'
+        'Потребно е сите полиња да се пополнети'
       return
     }
+    // let productStatus = this.products.some((product) => product.amount === 0)
+    // if (!productStatus) {
+    //   document.querySelector('._global_error').textContent =
+    //     'Немате продукти во кошничка'
+    // }
 
     // products
     let response = null

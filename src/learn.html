@@ -16,107 +16,147 @@
 </head>
 
 <body class="layout--parent">
-  <header class="layout flex-row border-bottom justify-between padd-blc-1 align-center pos-relative">
-    <h6 class="font-alt">Eclat de Jus</h6>
+  <div class="cart flex-column gap-2 _cart_target padd-2" data-state="inactive">
+    <h5 class="font-alt border-bottom">Вашата кошничка</h5>
+
+    <div class="flex-column justify-between gap-1 product-cont">
+      <p>Нема продукти</p>
+    </div>
+
+    <h6 class="font-alt border-bottom">Достави на</h6>
+    <form id="deliveryInfo" class=" flex-column gap-05" autocomplete="on">
+      <label for="full_name" title="Please enter your full name">Име и Презиме</label>
+      <input name="full_name" type="text" class="card form" required autocomplete="name">
+
+      <label for="Address" title="Please enter your address">Адреса</label>
+      <input name="Address" type="text" class="card form" required autocomplete="street-address">
+
+      <label for="Email" title="Please enter your email address">Е-мејл</label>
+      <input name="Email" type="email" class="card form" required autocomplete="email">
+
+      <label for="Phone" title="Please enter your phone number">Телефонски Број</label>
+      <input name="Phone" type="tel" class="card form" required autocomplete="tel">
+    </form>
+
+
+    <h6 class="font-alt border-bottom">За Исплата</h6>
+
+    <div class="flex-column gap-05">
+      <div class="flex-row justify-between">
+        <p>Достава</p>
+        <p>Бесплатна достава</p>
+      </div>
+
+      <div class="flex-row justify-between">
+        <p>Вкупно</p>
+        <p class="cart-total mkd-suffix">Cart empty</p>
+      </div>
+    </div>
+    <button id="proxyProcess" data-input=".form" data-target="#deliveryInfo">
+      Платете со cPay
+    </button>
+    <p class="_global_error error-red"></p>
+    <div class="flex-column gap-05 mt-auto">
+      <a>Contact support</a>
+      <a>Privacy policy</a>
+    </div>
+  </div>
+
+  <div class="overlay _cart_target _cart_origin" data-sst="._cart_target" data-state="inactive"></div>
+  <header class="layout flex-row border-bottom justify-between padd-blc-1 align-center pos-fixed z-2">
+    <a href="/">
+      <h6 class="font-alt">Eclat de Jus</h6>
+    </a>
 
     <div class="flex-row gap-2">
-      <a href="index.html" class="bold">Home</a>
+      <a href="/" class="bold mobile-hidden">Почетна</a>
 
-      <a href="juices.html" class="bold">Juices</a>
+      <a href="./juices.html" class="bold">Сокови</a>
 
-      <a href="learn.html" class="bold">Learn</a>
+      <a href="./learn.html" class="bold">Процесот</a>
     </div>
 
-    <button>
-      Cart
-      <span class="material-symbols-outlined icon-24">shopping_bag</span>
+    <button class=" _cart_origin" data-target="._cart_target" data-sst="._cart_target">
+      <p class="mobile-hidden">Кошничка</p>
+      <span class="material-symbols-outlined icon-24 ">shopping_bag</span>
     </button>
   </header>
-
-  <div class="layout">
-    <h3 class="layout--12 font-alt">100% oргански сокови за 100% енергија</h3>
-  </div>
-
-  <div class="layout">
-    <img src="" alt="" class="layout--6" />
-    <div class="layout--4 card flex-column gap-1 padd-1">
-      <h4 class="font-alt border-bottom">Најдоброто од мајка природа</h4>
-      <p>
-        Соковите Éclat de Jus не содржат шеќери, адитиви и конзерванси. Нашите
-        сокови се состојат од над 15 различни плодови, внимателно селектирани
-        и одбрани, со цел да Ви ја понудиме најдобрата и најоптилманата
-        селекција на здрави, нутритивни и вкусни сокови, наменети за
-        детоксикација и прочистување на организмот.
-      </p>
+  <main class="layout--parent">
+    <div class="layout">
+      <h1 class="custom-h3 layout--12 font-alt">100% oргански сокови за 100% енергија</h1>
     </div>
-  </div>
-  <div class="layout">
-    <div class="layout--2"></div>
-    <div class="layout--4 card flex-column gap-1 padd-1">
-      <h4 class="font-alt border-bottom">Eco-friendly достава</h4>
-      <p>
-        Ние сме еколошки свесна компанија која се грижи за околината и ја почитува природата. Затоа Вашите пакети ќе
-        пристигнат во еколошки кутии, доставени на eco-friendly начин.
-      </p>
+    <div class="layout">
+      <img src="" alt="" class="layout--6" />
+      <div class="layout--4 card flex-column gap-1 padd-1">
+        <h4 class="font-alt border-bottom">Најдоброто од мајка природа</h4>
+        <p>
+          Соковите Éclat de Jus не содржат шеќери, адитиви и конзерванси. Нашите
+          сокови се состојат од над 15 различни плодови, внимателно селектирани
+          и одбрани, со цел да Ви ја понудиме најдобрата и најоптилманата
+          селекција на здрави, нутритивни и вкусни сокови, наменети за
+          детоксикација и прочистување на организмот.
+        </p>
+      </div>
     </div>
-    <img src="" alt="" class="layout--6" />
-  </div>
-  <div class="layout">
-    <img src="" alt="" class="layout--6" />
-    <div class="layout--4 card flex-column gap-1 padd-1">
-      <h4 class="font-alt border-bottom">Овошно размрдување</h4>
-      <p>
-        Одлучете се да бидете одлични! Внесете пролет во Вашиот организам и почуствувајте како повторно енергијата Ви е
-        на највисоко ниво.
-      </p>
+    <div class="layout">
+      <div class="layout--2"></div>
+      <div class="layout--4 card flex-column gap-1 padd-1">
+        <h4 class="font-alt border-bottom">Eco-friendly достава</h4>
+        <p>
+          Ние сме еколошки свесна компанија која се грижи за околината и ја почитува природата. Затоа Вашите пакети ќе
+          пристигнат во еколошки кутии, доставени на eco-friendly начин.
+        </p>
+      </div>
+      <img src="" alt="" class="layout--6" />
     </div>
-  </div>
-
-  <section class="layout">
-    <h2 class="layout--6 font-alt">What are you waiting for,</h2>
-
-    <div class="layout--6"></div>
-    <div class="layout--6"></div>
-
-    <h2 class="layout--6 font-alt">Grab a smoothie now</h2>
-
-    <img class="layout--4 card" src="/images/noah-buscher-8A7fD6Y5VF8-unsplash.jpg" alt="" />
-
-    <div class="layout--2"></div>
-
-    <div class="layout--6 flex-column gap-2 padd-blc-4">
-      <a>
-        <h5 class="border-bottom inline">Cleanse Designer</h5>
-      </a>
-      <a>
-        <h5 class="borwder-bottom inline">Learn About Juices</h5>
-      </a>
+    <div class="layout">
+      <img src="" alt="" class="layout--6" />
+      <div class="layout--4 card flex-column gap-1 padd-1">
+        <h4 class="font-alt border-bottom">Овошно размрдување</h4>
+        <p>
+          Одлучете се да бидете одлични! Внесете пролет во Вашиот организам и почуствувајте како повторно енергијата Ви
+          е
+          на највисоко ниво.
+        </p>
+      </div>
     </div>
-  </section>
+    <section class="layout">
+      <h2 class="layout--6 font-alt">Подготвени за детоксикација?</h2>
+      <div class="layout--6 mobile-hidden"></div>
+      <div class="layout--6 mobile-hidden"></div>
+      <h2 class="layout--6 font-alt">Започнете веднаш!</h2>
+      <img class="layout--4" src="/images/noah-buscher-8A7fD6Y5VF8-unsplash.jpg" alt="" />
+      <div class="layout--2"></div>
+      <div class="layout--6 flex-column gap-2 padd-blc-4">
+        <a href="/#cleanse-scroll">
+          <h5 class="border-bottom inline">Одбери Пакет</h5>
+        </a>
+        <a href="./learn.html">
+          <h5 class="border-bottom inline">Процесот</h5>
+        </a>
+      </div>
+    </section>
+  </main>
 
   <footer class="layout padd-blc-4 border-top">
     <h5 class="layout--4">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita,
-      mollitia.
     </h5>
 
-    <span class="layout--2"> </span>
+    <div class="layout--2 mobile-hidden"> </div>
 
     <div class="layout--2 flex-column gap-05">
-      <h6>Navigation</h6>
+      <h6>Навигација</h6>
 
-      <a> Home </a>
-      <a> Juices </a>
-      <a> Cleanses </a>
-      <a> Cart </a>
+      <a href="/">Почетна</a>
+      <a href="./juices.html">Сокови</a>
+      <a href="./learn.html">Процесот</a>
     </div>
 
     <div class="layout--2 flex-column gap-05">
-      <h6>Links</h6>
+      <h6>Линкови</h6>
 
-      <a> Instagram </a>
-      <a> Facebook </a>
-      <a> Linkedin </a>
+      <a href="https://www.instagram.com/eclatdejus/"> Instagram </a>
+      <a href="/privacy-policy"> Privacy Policy </a>
     </div>
   </footer>
 </body>

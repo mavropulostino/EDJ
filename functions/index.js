@@ -1,8 +1,10 @@
 const xss = require('xss')
 const crypto = require('crypto')
-const { onCall, onRequest, HttpsError } = require('firebase-functions/v2/https')
-const { params } = require('firebase-functions')
-const path = require('path')
+const { onCall } = require('firebase-functions/v2/https')
+const functions = require('firebase-functions')
+const express = require('express')
+const onSuccess = express()
+const onFail = express()
 
 function sanitize(value) {
   if (typeof value === 'string') return xss(value)
@@ -60,11 +62,12 @@ function formatMap(details1, details2, total, cleanData) {
     AmountToPay: 1 * 100,
     AmountCurrency: 'MKD',
     Details1: details1,
-    Details2: details2, // Unique payment reference
+    // Details2: details2, // Unique payment reference
+    Details2: 'Тёст Strîñğ', // Unique payment reference
     PayToMerchant: 1000002294,
     MerchantName: 'DJUSIFAJ DOO',
-    PaymentOKURL: 'https://paymentsuccess-lwuscei57q-uc.a.run.app',
-    PaymentFailURL: 'https://paymentfail-lwuscei57q-uc.a.run.app',
+    PaymentOKURL: 'https://eclatdejus.com/success',
+    PaymentFailURL: 'https://eclatdejus.com/fail',
     Address: cleanData.form.Address,
     Telephone: cleanData.form.Phone,
     Email: cleanData.form.Email,
@@ -141,18 +144,38 @@ exports.preparePayment = onCall(
   }
 )
 
-exports.paymentSuccess = onRequest({ cors: true }, (req, res) => {
-  // let reqOBJ = {
-  //   headers: req.headers,
-  //   query: req.query,
-  //   params: req.params,
-  //   path: req.path,
-  //   body: req.body,
-  // }
-  // if (req.headers.origin !== 'https://www.cpay.com.mk') res.status(403).send()
-  res.status(200).redirect('https://eclatdejus.com/?success').send()
+onSuccess.post('/success', (req, res) => {
+  let redirect = `    
+<html>
+  <body>
+    <script>
+      // Redirect after processing data
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 100); // Adjust delay as needed
+    </script>
+  </body>
+</html>
+`
+
+  res.status(200).send(redirect)
 })
-exports.paymentFail = onRequest({ cors: true }, (req, res) => {
-  if (req.headers.origin !== 'https://www.cpay.com.mk') res.status(403).send()
-  res.status(200).redirect('https://eclatdejus.com/?fail').send()
+onFail.post('/fail', (req, res) => {
+  let redirect = `    
+<html>
+  <body>
+    <script>
+      // Redirect after processing data
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 100); // Adjust delay as needed
+    </script>
+  </body>
+</html>
+`
+
+  res.status(200).send(redirect)
 })
+
+exports.onSuccess = functions.https.onRequest(onSuccess)
+exports.onFail = functions.https.onRequest(onFail)
