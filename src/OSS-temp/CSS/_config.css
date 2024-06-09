@@ -1,0 +1,80 @@
+* {
+  font-size: clamp(12px, 0.5vw + 8px, 16px);
+}
+body {
+  max-width: 1920px;
+  min-height: 100vh;
+  width: 100%;
+  margin-inline: auto;
+}
+
+/* DESKTOP */
+:root {
+  --layout--parent-gap: 12rem;
+  --layout-grid: repeat(12, 1fr);
+  --layout-margins-yx: 0 8rem;
+  --layout-gap-yx: 1rem 1rem;
+}
+
+/* MOBILE */
+@media screen and (max-width: 1024px) /* and (pointer: coarse) */ {
+  :root {
+    --layout--parent-gap: 2rem;
+    --layout-grid: repeat(8, 1fr);
+    --layout-margins-yx: 6rem 1rem;
+    --layout-gap-yx: 1rem 1rem;
+  }
+  .layout--12 {
+    grid-column: span 8;
+  }
+  .layout--8 {
+    grid-column: span 8;
+  }
+  .layout--6 {
+    grid-column: span 8;
+  }
+  .layout--4 {
+    grid-column: span 8;
+  }
+  .layout--3 {
+    grid-column: span 8;
+  }
+  .layout--2 {
+    grid-column: span 4;
+  }
+  .mobile-hidden {
+    display: none !important;
+  }
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* TYPO */
+:root {
+  --font-main: 'Inter';
+  --font-alt: 'Playfair';
+
+  --font-base: 1rem;
+  --font-size-step: 1rem;
+  --line-height-offset: 0.5rem;
+}
+@font-face {
+  font-family: 'Inter';
+  font-weight: 200;
+  src: url(/fonts/Inter-VariableFont_slnt\,wght.ttf);
+}
+@font-face {
+  font-family: 'Playfair';
+  font-weight: 600;
+  src: url(/fonts/Playfair-VariableFont_opsz\,wdth\,wght.ttf);
+  font-variation-settings: 'wdth' 100;
+}
+.row-gap-4 {
+  row-gap: 4rem;
+}
+.col-gap-2 {
+  column-gap: 2rem;
+}
+html {
+  scroll-behavior: smooth;
+}

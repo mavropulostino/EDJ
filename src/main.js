@@ -1,13 +1,13 @@
-import './osseus/CSS/_config.css'
-import './osseus/CSS/_custom.css'
-import './osseus/CSS/color.css'
-import './osseus/CSS/reset.css'
-import './osseus/CSS/structure.css'
-import './osseus/CSS/typography.css'
-import './osseus/CSS/utility.css'
+import './OSS-temp/CSS/_config.css'
+import './OSS-temp/CSS/_custom.css'
+import './OSS-temp/CSS/color.css'
+import './OSS-temp/CSS/reset.css'
+import './OSS-temp/CSS/structure.css'
+import './OSS-temp/CSS/typography.css'
+import './OSS-temp/CSS/utility.css'
 
-import { globalEventHandler } from './osseus/JS/handlers'
-import { singleStateToggle } from './osseus/JS/state'
+import { globalEventHandler } from './OSS-temp/JS/handlers'
+import { singleStateToggle } from './OSS-temp/JS/state'
 import { Cart, Product } from './shop'
 
 let two_day_signature = new Product(

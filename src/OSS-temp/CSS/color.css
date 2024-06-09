@@ -1,0 +1,11 @@
+@import '_config.css';
+
+.clr-primary {
+  background-color: var(--clr-primary);
+}
+.clr-secondary {
+  background-color: var(--clr-secondary);
+}
+.clr-tertiary {
+  background-color: var(--clr-tertiary);
+}

@@ -1,0 +1,124 @@
+header {
+  width: 100%;
+  background-color: white;
+  z-index: 2;
+}
+img {
+  border-radius: 2px;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  mix-blend-mode: darken;
+}
+.img-cont {
+  background-color: #f2f2f2;
+  max-height: 512px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  border-radius: 2px;
+  background-color: #f2f2f2;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.cart[data-state='inactive'] {
+  display: none;
+}
+.cart[data-state='active'] {
+  width: clamp(256px, 80vw, 512px);
+  height: 100vh;
+  overflow: scroll;
+  position: fixed;
+  background-color: white;
+  right: 0;
+  z-index: 4;
+}
+.overlay[data-state='inactive'] {
+  opacity: 0;
+  display: none;
+}
+.overlay[data-state='active'] {
+  background-color: black;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+  opacity: 0.2;
+  /* backdrop-filter: blur(10px); */
+}
+.mt-auto {
+  margin-top: auto;
+}
+.form {
+  padding: 0.25rem 0.5rem;
+}
+._faq_target[data-state='inactive'] {
+  display: none;
+}
+._faq_target[data-state='active'] {
+  display: inherit;
+}
+body,
+html {
+  overflow-x: hidden !important;
+}
+.inline {
+  display: inline;
+}
+.error-red {
+  color: red;
+  font-weight: 600 !important ;
+}
+.mkd-suffix::after {
+  content: ' mkd';
+}
+.break {
+  word-wrap: break-word;
+}
+.portrait {
+  max-height: 100%;
+}
+main {
+  padding-block: 8rem !important;
+}
+.juice-img {
+  /* width: 75%; */
+  aspect-ratio: 1/1;
+}
+.juice-text {
+  position: absolute;
+}
+.break-none {
+  white-space: nowrap;
+}
+.custom-h5 {
+  font-size: 3rem;
+  line-height: 3.5rem;
+}
+.custom-h3 {
+  font-size: 5rem;
+  line-height: 5.5rem;
+}
+.svg-icon-24 {
+  width: 1.5rem;
+  height: 1.5rem;
+  mix-blend-mode: normal;
+  border: none !important;
+}
+.svg-icon-40 {
+  width: 2.5rem;
+  height: 2.5rem;
+  mix-blend-mode: normal;
+  border: none;
+}
+.cart {
+  overflow-x: hidden !important;
+}
+.learn-img {
+  aspect-ratio: 3/2;
+  object-fit: cover;
+}
