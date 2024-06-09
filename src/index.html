@@ -1,111 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EDJ Home</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-    <script src="main.js" type="module"></script>
-  </head>
 
-  <body class="layout--parent">
-    <header
-      class="layout flex-row border-bottom justify-between padd-blc-1 align-center pos-relative"
-    >
-      <h6 class="font-alt">Eclat de Jus</h6>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eclat de jus | Почетна</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="main.js" type="module"></script>
+</head>
 
-      <div class="flex-row gap-2">
-        <a href="index.html" class="bold">Home</a>
+<body class="layout--parent">
 
-        <a href="juices.html" class="bold">Juices</a>
+  <div class="cart flex-column gap-2 _cart_target padd-2" data-state="inactive">
+    <h5 class="font-alt border-bottom">Вашата кошничка</h5>
 
-        <a href="learn.html" class="bold">Learn</a>
+    <div class="flex-column justify-between gap-1 product-cont">
+      <p>Нема продукти</p>
+    </div>
+
+    <h6 class="font-alt border-bottom">Достави на</h6>
+    <form id="deliveryInfo" class=" flex-column gap-05" autocomplete="on">
+      <label for="full_name" title="Please enter your full name">Име и Презиме</label>
+      <input name="full_name" type="text" class="card form" required autocomplete="name">
+
+      <label for="Address" title="Please enter your address">Адреса</label>
+      <input name="Address" type="text" class="card form" required autocomplete="street-address">
+
+      <label for="Email" title="Please enter your email address">Е-мејл</label>
+      <input name="Email" type="email" class="card form" required autocomplete="email">
+
+      <label for="Phone" title="Please enter your phone number">Телефонски Број</label>
+      <input name="Phone" type="tel" class="card form" required autocomplete="tel">
+    </form>
+
+
+    <h6 class="font-alt border-bottom">За Исплата</h6>
+
+    <div class="flex-column gap-05">
+      <div class="flex-row justify-between">
+        <p>Достава</p>
+        <p>Бесплатна достава</p>
       </div>
 
-      <button>
-        Cart
-        <span class="material-symbols-outlined icon-24">shopping_bag</span>
-      </button>
-    </header>
+      <div class="flex-row justify-between">
+        <p>Вкупно</p>
+        <p class="cart-total mkd-suffix">Cart empty</p>
+      </div>
+    </div>
+    <button id="proxyProcess" data-input=".form" data-target="#deliveryInfo">
+      Платете со cPay
+    </button>
+    <p class="_global_error error-red"></p>
+    <div class="flex-column gap-05 mt-auto">
+      <a>Contact support</a>
+      <a>Privacy policy</a>
+    </div>
+  </div>
 
-    <main class="layout--parent">
-      <section class="layout">
-        <img class="layout--8"></img>
+  <div class="overlay _cart_target _cart_origin" data-sst="._cart_target" data-state="inactive"></div>
+  <header class="layout flex-row border-bottom justify-between padd-blc-1 align-center pos-fixed z-2">
+    <a href="/">
+      <h6 class="font-alt">Eclat de Jus</h6>
+    </a>
 
-        <div class="layout--4 flex-column gap-1 padd-1">
-          <h4 class="font-alt">Lorem ipsum dolor sit amet.</h4>
+    <div class="flex-row gap-2">
+      <a href="/" class="bold mobile-hidden">Почетна</a>
 
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-            voluptatibus sed beatae mollitia magni quod temporibus voluptas quae
-            architecto saepe.
-          </p>
+      <a href="./juices.html" class="bold">Сокови</a>
 
-          <button>
-            Add to Cleanse
-            <span class="material-symbols-outlined icon-24"></span>
-          </button>
+      <a href="./learn.html" class="bold">Процесот</a>
+    </div>
+
+    <button class=" _cart_origin" data-target="._cart_target" data-sst="._cart_target">
+      <p class="mobile-hidden">Кошничка</p>
+      <span class="material-symbols-outlined icon-24 ">shopping_bag</span>
+    </button>
+  </header>
+
+  <main class="layout--parent">
+    <section class="layout">
+      <div class="layout--8 img-cont">
+        <img alt="orange packaging box for products delivery" src="\images\box_orange_1.webp"></img>
+      </div>
+
+      <div class="layout--4 flex-column gap-1 padd-1 card">
+        <h1 class="font-alt border-bottom break custom-h5"> Éclat de Jus – Свежи и органски сокови за целосна
+          детоксикација</h1>
+
+        <p>Високовитамински сокови спакувани во еко-пакети за целосен ,,ресет“ на Вашиот организам. Éclat de Jus
+          соковите се нектар на свежина, на нова виталност. Прочистете го телото од штетни материи и уживајте во новиот
+          порив – живејте со полна пареа и со нова енергија. Достава низ цела Македонија</p>
+
+        <!-- <button>
+          Add to Cleanse
+          <span class="material-symbols-outlined icon-24"></span>
+        </button> -->
+      </div>
+
+    </section>
+
+    <section class="layout row-gap-4 col-gap-2" id="cleanse-scroll">
+      <h2 class="layout--12 font-alt border-bottom">Signature Cleanses</h2>
+
+      <div class="layout--12 img-cont"><img src="images\box_white_spilled.webp"
+          alt="singature juices in a white delivery box" class=""></div>
+      <h3 class="layout--6 font-alt ">Дводневен Пакет</h3>
+      <div class="layout--6 flex-column gap-4">
+        <div class="grid-3">
+          <p>Pom Sweet Pom</p>
+          <p>Pear Majesty</p>
+          <p>The Big Apple</p>
+          <p>Aloha Elixir</p>
+          <p>Limeless</p>
+
         </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit eos quisquam animi, labore impedit tenetur
+          deserunt dolore at earum necessitatibus, praesentium quas, architecto suscipit? Dicta inventore culpa animi?
+          Eum, neque.f
+        </p>
+        <div class="flex-row gap-2 align-center ">
 
-        <div class="layout--3"></div>
-        <div class="layout--3"></div>
-        <div class="layout--3"></div>
-        <div class="layout--3"></div>
-      </section>
-
-      <section class="layout">
-        <div class="layout--12">
-          <h6>Lorem, ipsum dolor.</h6>
-          <h2 class="font-alt">Дизајнирајте го вашиот cleanse</h2>
+          <div class="card flex-row align-center gap-05 padd-05">
+            <span class="material-symbols-outlined icon-20 _add_amount" data-name="Two_Day_Signature">add</span>
+            <p class="Two_Day_Signature_amount">0</p>
+            <span class="material-symbols-outlined icon-20 _remove_amount" data-name="Two_Day_Signature">remove</span>
+          </div>
+          <p class="mkd-suffix">2000</p>
         </div>
+      </div>
 
-        <div class="layout--3 flex-column gap-05">
-          <h6 class="border-bottom font-alt">Lorem, ipsum.</h6>
-
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
-            dolorum sit perferendis ducimus. Aspernatur voluptas, magnam odio
-            est eos rem!
-          </p>
+      <div class="layout--12 img-cont"><img src="images\box_white_spilled.webp"
+          alt="singature juices in a white delivery box">
+      </div>
+      <h3 class="layout--6 font-alt ">Тридневен Пакет</h3>
+      <div class="layout--6 flex-column gap-4">
+        <div class="grid-3">
+          <p>Pom Sweet Pom</p>
+          <p>Pear Majesty</p>
+          <p>The Big Apple</p>
+          <p>Aloha Elixir</p>
+          <p>Limeless</p>
         </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit eos quisquam animi, labore impedit tenetur
+          deserunt dolore at earum necessitatibus, praesentium quas, architecto suscipit? Dicta inventore culpa animi?
+          Eum, neque.
+        </p>
+        <div class="flex-row gap-2 align-center ">
 
-        <div class="layout--3 flex-column gap-05">
-          <h6 class="border-bottom font-alt">Lorem, ipsum.</h6>
-
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicng elit. Sunt dolorum
-            sit perferendis ducimus. Aspernatur voluptas, magnam odio est eos
-            rem!
-          </p>
+          <div class="card flex-row align-center gap-05 padd-05">
+            <span class="material-symbols-outlined icon-20 _add_amount" data-name="Three_Day_Signature">add</span>
+            <p class="Three_Day_Signature_amount">0</p>
+            <span class="material-symbols-outlined icon-20 _remove_amount" data-name="Three_Day_Signature">remove</span>
+          </div>
+          <p class="mkd-suffix">2850</p>
         </div>
+      </div>
 
-        <div class="layout--3 flex-column gap-05">
-          <h6 class="border-bottom font-alt">Lorem, ipsum.</h6>
-
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
-            dolorum sit perferendis ducimus. Aspernatur voluptas, magnam odio
-            est eos rem!
-          </p>
+      <div class="layout--12 img-cont"><img src="images\box_white_spilled.webp"
+          alt="singature juices in a white delivery box">
+      </div>
+      <h3 class="layout--6 font-alt ">Четиридневен Пакет</h3>
+      <div class="layout--6 flex-column gap-4">
+        <div class="grid-3">
+          <p>Pom Sweet Pom</p>
+          <p>Pear Majesty</p>
+          <p>The Big Apple</p>
+          <p>Aloha Elixir</p>
+          <p>Limeless</p>
         </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit eos quisquam animi, labore impedit tenetur
+          deserunt dolore at earum necessitatibus, praesentium quas, architecto suscipit? Dicta inventore culpa animi?
+          Eum, neque.
+        </p>
+        <div class="flex-row gap-2 align-center ">
 
-        <div class="layout--3 flex-column gap-05">
-          <h6 class="border-bottom font-alt">Lorem, ipsum.</h6>
-
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
-            dolorum sit perferendis ducimus. Aspernatur voluptas, magnam odio
-            est eos rem!
-          </p>
+          <div class="card flex-row align-center gap-05 padd-05">
+            <span class="material-symbols-outlined icon-20 _add_amount" data-name="Four_Day_Signature">add</span>
+            <p class="Four_Day_Signature_amount">0</p>
+            <span class="material-symbols-outlined icon-20 _remove_amount" data-name="Four_Day_Signature">remove</span>
+          </div>
+          <p class="mkd-suffix">3600</p>
         </div>
-      </section>
+      </div>
 
-      <!-- frame 42 ke go praime drug pat -->
+      <h2 class="layout--12 font-alt border-bottom">Immuno Cleanses</h2>
+      <div class="layout--12 img-cont"><img src="images\box_black_spilled.webp"
+          alt="imuno juices from black delivery box">
+      </div>
+      <h3 class="layout--6 font-alt ">Дводневен Пакет</h3>
+      <div class="layout--6 flex-column gap-4">
+        <div class="grid-3">
+          <p>The Eearly Greens</p>
+          <p>The Big Apple</p>
+          <p>Pom Sweet Pom</p>
+          <p>Pear Majesty</p>
+          <p>Don't Skip a Beet</p>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit eos quisquam animi, labore impedit tenetur
+          deserunt dolore at earum necessitatibus, praesentium quas, architecto suscipit? Dicta inventore culpa animi?
+          Eum, neque.
+        </p>
+        <div class="flex-row gap-2 align-center ">
 
-      <!-- <section class="layout">
+          <div class="card flex-row align-center gap-05 padd-05">
+            <span class="material-symbols-outlined icon-20 _add_amount" data-name="Two_Day_Immuno">add</span>
+            <p class="Two_Day_Immuno_amount">0</p>
+            <span class="material-symbols-outlined icon-20 _remove_amount" data-name="Two_Day_Immuno">remove</span>
+          </div>
+          <p class="mkd-suffix">1900</p>
+        </div>
+      </div>
+
+      <div class="layout--12 img-cont"><img src="images\box_black_spilled.webp"
+          alt="imuno juices from black delivery box">
+      </div>
+      <h3 class="layout--6 font-alt ">Тридневен Пакет</h3>
+      <div class="layout--6 flex-column gap-4">
+        <div class="grid-3">
+          <p>The Eearly Greens</p>
+          <p>The Big Apple</p>
+          <p>Pom Sweet Pom</p>
+          <p>Pear Majesty</p>
+          <p>Don't Skip a Beet</p>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit eos quisquam animi, labore impedit tenetur
+          deserunt dolore at earum necessitatibus, praesentium quas, architecto suscipit? Dicta inventore culpa animi?
+          Eum, neque.
+        </p>
+        <div class="flex-row gap-2 align-center ">
+
+          <div class="card flex-row align-center gap-05 padd-05">
+            <span class="material-symbols-outlined icon-20 _add_amount" data-name="Three_Day_Immuno">add</span>
+            <p class="Three_Day_Immuno_amount">0</p>
+            <span class="material-symbols-outlined icon-20 _remove_amount" data-name="Three_Day_Immuno">remove</span>
+          </div>
+          <p class="mkd-suffix">2700</p>
+        </div>
+      </div>
+
+      <div class="layout--12 img-cont"><img src="images\box_black_spilled.webp"
+          alt="imuno juices from black delivery box">
+      </div>
+      <h3 class="layout--6 font-alt ">Четиридневен Пакет</h3>
+      <div class="layout--6 flex-column gap-4">
+        <div class="grid-3">
+          <p>The Eearly Greens</p>
+          <p>The Big Apple</p>
+          <p>Pom Sweet Pom</p>
+          <p>Pear Majesty</p>
+          <p>Don't Skip a Beet</p>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit eos quisquam animi, labore impedit tenetur
+          deserunt dolore at earum necessitatibus, praesentium quas, architecto suscipit? Dicta inventore culpa animi?
+          Eum, neque.
+        </p>
+        <div class="flex-row gap-2 align-center ">
+
+          <div class="card flex-row align-center gap-05 padd-05">
+            <span class="material-symbols-outlined icon-20 _add_amount" data-name="Four_Day_Immuno">add</span>
+            <p class="Four_Day_Immuno_amount">0</p>
+            <span class="material-symbols-outlined icon-20 _remove_amount" data-name="Four_Day_Immuno">remove</span>
+          </div>
+          <p class="mkd-suffix">3400</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- <section class="layout">
         <div class="layout--12">
           <h6>Lorem, ipsum dolor.</h6>
           <h2 class="font-alt">Testimonials</h2>
@@ -152,123 +315,131 @@
         >
       </section> -->
 
-      <section class="layout gap-4">
-        <div class="layout--12">
-          <h6>Frequently asked questions</h6>
-          <h2 class="font-alt">Your Questions Answered</h2>
-        </div>
+    <section class="layout gap-4">
+      <div class="layout--12">
+        <h6>Често Поставувани Прашања</h6>
+        <h2 class="font-alt">Што Можеме Да Ви Одговориме</h2>
+      </div>
 
-        <div class="layout--12 flex-column flex-wrap border-top">
-          <div
-            class="padd-blc-2 flex-column gap-2 border-bottom _faq_origin"
-            data-target="._faq_target"
-            data-sst="one"
-          >
-            <div class="flex-row">
-              <h5>Lorem ipsum dolor sit.</h5>
-              <span class="material-symbols-outlined icon-48 push-right"
-                >add</span
-              >
-            </div>
-            <p id="one" class="_faq_target" data-state="inactive">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti
-              fugiat, eius voluptates numquam quae tempora officia quo, autem
-              atque a placeat, hic qui velit cupiditate voluptatibus alias eum.
-              Aspernatur, minus?
-            </p>
+      <div class="layout--12 flex-column flex-wrap border-top">
+        <div class="padd-blc-2 flex-column gap-2 border-bottom _faq_origin" data-target="._faq_target" data-sst="#one">
+          <div class="flex-row">
+            <h6>Како да нарачам и за колку време ќе ми пристигне нарачката?</h6>
+            <span class="material-symbols-outlined icon-48 push-right ">add</span>
           </div>
+          <p id="one" class="_faq_target" data-state="inactive">
+            Процесот на нарачка е многу едноставен и лесен. Сè што треба да направите е да отидете на нашата
+            веб-страница, да го одберете пакетот кој Вас најмногу Ви одговара и да ја направите нарaчката. Пакетот со
+            свежи и органски сокчиња ќе пристине на Вашата адреса.
+        </div>
 
-          <div
-            class="padd-blc-2 flex-column gap-2 border-bottom _faq_origin"
-            data-target="._faq_target"
-            data-sst="two"
-          >
-            <div class="flex-row">
-              <h5>Lorem ipsum dolor sit.</h5>
-              <span class="material-symbols-outlined icon-48 push-right"
-                >add</span
-              >
-            </div>
-            <p id="two" class="_faq_target" data-state="inactive">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti
-              fugiat, eius voluptates numquam quae tempora officia quo, autem
-              atque a placeat, hic qui velit cupiditate voluptatibus alias eum.
-              Aspernatur, minus?
-            </p>
+        <div class="padd-blc-2 flex-column gap-2 border-bottom _faq_origin" data-target="._faq_target" data-sst="#two">
+          <div class="flex-row">
+            <h6>Што е детоксикација?</h6>
+            <span class="material-symbols-outlined icon-48 push-right">add</span>
           </div>
+          <p id="two" class="_faq_target" data-state="inactive">
+            Деткосикација е прочистување на организмот од токсините. Нашето тело секојдневно има за задача да вари
+            храна, често станува збор за нездрава храна, храна полна со шеќери, процесирана храна... Поради ова, можеме
+            да се чувствуваме нерасположено, да имаме помалку енергија, да страдаме од несоница, да чувствуваме болка во
+            мускулите или ред други непогодности.
+            Детоксикацијата е решение на овој проблем. Преку овој процес, ние го чистиме нашето тело од штетните
+            токсини, пестициди и останатите токсични материи. Освен преку храната, овие непосакувани елементи влегуваат
+            во нашето тело и преку воздухот, лековите, козметичките производи и многу друго.
+          </p>
+        </div>
 
-          <div
-            class="padd-blc-2 flex-column gap-2 border-bottom _faq_origin"
-            data-target="._faq_target"
-            data-sst="three"
-          >
-            <div class="flex-row">
-              <h5>Lorem ipsum dolor sit.</h5>
-              <span class="material-symbols-outlined icon-48 push-right"
-                >add</span
-              >
-            </div>
-            <p id="three" class="_faq_target" data-state="inactive">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti
-              fugiat, eius voluptates numquam quae tempora officia quo, autem
-              atque a placeat, hic qui velit cupiditate voluptatibus alias eum.
-              Aspernatur, minus?
-            </p>
+        <div class="padd-blc-2 flex-column gap-2 border-bottom _faq_origin" data-target="._faq_target"
+          data-sst="#three">
+          <div class="flex-row">
+            <h6>Колку долго трае процесот на детоксикација?</h6>
+            <span class="material-symbols-outlined icon-48 push-right">add</span>
           </div>
-        </div>
-      </section>
+          <p id="three" class="_faq_target" data-state="inactive">
 
-      <section class="layout">
-        <h2 class="layout--6 font-alt">What are you waiting for,</h2>
-
-        <div class="layout--6"></div>
-        <div class="layout--6"></div>
-
-        <h2 class="layout--6 font-alt">Grab a smoothie now</h2>
-
-        <img
-          class="layout--4"
-          src="/images/noah-buscher-8A7fD6Y5VF8-unsplash.jpg"
-          alt=""
-        />
-
-        <div class="layout--2"></div>
-
-        <div class="layout--6 flex-column gap-2 padd-blc-4">
-          <a>
-            <h5 class="border-bottom inline">Cleanse Designer</h5>
-          </a>
-          <a>
-            <h5 class="border-bottom inline">Learn About Juices</h5>
-          </a>
-        </div>
-      </section>
-
-      <footer class="layout padd-blc-4 border-top">
-        <h5 class="layout--4">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita,
-          mollitia.
-        </h5>
-
-        <span class="layout--2"> </span>
-
-        <div class="layout--2 flex-column gap-05">
-          <h6>Navigation</h6>
-
-          <a> Home </a>
-          <a> Juices </a>
-          <a> Cleanses </a>
-          <a> Cart </a>
+            Éclat de Jus нуди пакети за детоксикација од 2, 3 и 4 дена. Нашите пакети се состојат од сокови направени по
+            специјален рецепт со цел да го прочистат Вашиот организам од сите штетни токсини и несакани материи.
+          </p>
         </div>
 
-        <div class="layout--2 flex-column gap-05">
-          <h6>Links</h6>
-
-          <a> Instagram </a>
-          <a> Facebook </a>
-          <a> Linkedin </a>
+        <div class="padd-blc-2 flex-column gap-2 border-bottom _faq_origin" data-target="._faq_target" data-sst="#four">
+          <div class="flex-row">
+            <h6>Што можам да јадам додека трае процесот на детоксикација и колку вода треба да конзумирам?</h6>
+            <span class="material-symbols-outlined icon-48 push-right">add</span>
+          </div>
+          <p id="four" class="_faq_target" data-state="inactive">
+            Соковите на Éclat de Jus се направени со цел да бидат доволно нутритивни да можете да го поминете денот само
+            на нив, но сфаќаме дека тоа може да биде тешко за многу луѓе, па затоа при процесот на деткосикација,
+            препорачано е да се конзумира нискокалорична и органска храна. Овошјето и зеленчукот се секогаш одличен
+            избор, како и храна која e природно богата со јаглехидрати. Свежо овошје, проследено со овошните сокови
+            Éclat de Jus ќе му дојде како ,,кец на десетка“ на Вашиот организам, а зеленчукот можете да го јадете свежо
+            или варено. Компирите пак се вистинско решение за внесување на јаглехидрати.
+            Додека трае процесот на детоксикација, целосно ќе треба да раскрстите со шеќерот, процесираната храна и
+            храната која содржи премногу сол.
+            Количеството на вода кое треба да го внесувате зависи од Вашата килажа, физичка активност и низа други
+            околности, но како добра мерка за количество на вода кое треба да го конзумирате при процесот на
+            детоксикација е од 2 до 3 литра дневно, односн
+          </p>
         </div>
-      </footer>
-    </main>
-  </body>
+
+        <div class="padd-blc-2 flex-column gap-2 border-bottom _faq_origin" data-target="._faq_target" data-sst="#five">
+          <div class="flex-row">
+            <h6>Тренирање и физичка активност при детоксикација</h6>
+            <span class="material-symbols-outlined icon-48 push-right">add</span>
+          </div>
+          <p id="five" class="_faq_target" data-state="inactive">При процесот на детоксикација можете да бидете физички
+            активни, но во деновите кога Вашиот организам се чисти од непосакувани материи, најдобро е да не се
+            форсирате физички и да не вежбате тешки вежби. При детоксикација, се препорачува да одморите од напорен
+            тренинг и наместо тоа да практикувате јога или да одите на релаксирачка прошетка.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="layout">
+      <h2 class="layout--6 font-alt">Подготвени за детоксикација?</h2>
+
+      <div class="layout--6 mobile-hidden"></div>
+      <div class="layout--6 mobile-hidden"></div>
+
+      <h2 class="layout--6 font-alt">Започнете веднаш!</h2>
+
+      <img class="layout--4 portrait" src="/images/noah-buscher-8A7fD6Y5VF8-unsplash.jpg"
+        alt="healthy woman holding organic fruit" />
+
+      <div class="layout--2"></div>
+
+      <div class="layout--6 flex-column gap-2 padd-blc-4">
+        <a href="/#cleanse-scroll">
+          <h5 class="border-bottom inline">Одбери Пакет</h5>
+        </a>
+        <a href="./learn.html">
+          <h5 class="border-bottom inline">Процесот</h5>
+        </a>
+      </div>
+    </section>
+
+    <footer class="layout padd-blc-4 border-top">
+      <h5 class="layout--4">
+      </h5>
+
+      <div class="layout--2 mobile-hidden"> </div>
+
+      <div class="layout--2 flex-column gap-05">
+        <h6>Навигација</h6>
+
+        <a href="/">Почетна</a>
+        <a href="./juices.html">Сокови</a>
+        <a href="./learn.html">Процесот</a>
+      </div>
+
+      <div class="layout--2 flex-column gap-05">
+        <h6>Линкови</h6>
+
+        <a href="https://www.instagram.com/eclatdejus/"> Instagram </a>
+        <a href="/privacy-policy"> Privacy Policy </a>
+      </div>
+    </footer>
+  </main>
+</body>
+
 </html>
