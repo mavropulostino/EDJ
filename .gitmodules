@@ -1,0 +1,3 @@
+[submodule "src/OSS-temp"]
+	path = src/OSS-temp
+	url = https://github.com/Geshina/OSS-temp.git
