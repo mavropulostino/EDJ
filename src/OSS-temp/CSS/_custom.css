@@ -74,7 +74,7 @@ html {
   font-weight: 600 !important ;
 }
 .mkd-suffix::after {
-  content: ' mkd';
+  content: ' МКД';
 }
 .break {
   word-wrap: break-word;
