@@ -125,7 +125,7 @@ exports.preparePayment = onCall(
       //
       Two_Day_Immuno: 1900,
       Three_Day_Immuno: 2700,
-      Four_Day_Immuno: 3400,
+      Four_Day_Immuno: 2400,
     }
 
     let cleanData = sanitize(request.data)

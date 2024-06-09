@@ -12,7 +12,7 @@ img {
 }
 .img-cont {
   background-color: #f2f2f2;
-  max-height: 512px;
+  /* max-height: 512px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,6 +73,9 @@ html {
   color: red;
   font-weight: 600 !important ;
 }
+.mkd-suffix {
+  margin-bottom: 0;
+}
 .mkd-suffix::after {
   content: ' МКД';
 }
@@ -97,7 +100,7 @@ main {
 }
 .custom-h5 {
   font-size: 3rem;
-  line-height: 3.5rem;
+  line-height: 2.5rem;
 }
 .custom-h3 {
   font-size: 5rem;

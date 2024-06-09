@@ -26,16 +26,16 @@
     <h6 class="font-alt border-bottom">Достави на</h6>
     <form id="deliveryInfo" class=" flex-column gap-05" autocomplete="on">
       <label for="full_name" title="Please enter your full name">Име и Презиме</label>
-      <input name="full_name" type="text" class="card form" required autocomplete="name">
+      <input name="full_name" type="text" class="card form" placeholder="име и презиме" required autocomplete="name">
 
-      <label for="Address" title="Please enter your address">Адреса</label>
-      <input name="Address" type="text" class="card form" required autocomplete="street-address">
+      <label for="Address" title="Please enter your address">Град и Адреса</label>
+      <input name="Address" type="text" class="card form" placeholder="град / адреса" required autocomplete="street-address">
 
       <label for="Email" title="Please enter your email address">Е-мејл</label>
-      <input name="Email" type="email" class="card form" required autocomplete="email">
+      <input name="Email" type="email" class="card form" placeholder="е-мејл" required autocomplete="email">
 
       <label for="Phone" title="Please enter your phone number">Телефонски Број</label>
-      <input name="Phone" type="tel" class="card form" required autocomplete="tel">
+      <input name="Phone" type="tel" class="card form" placeholder="телефеонски број" required autocomplete="tel">
     </form>
 
 
@@ -64,9 +64,12 @@
 
   <div class="overlay _cart_target _cart_origin" data-sst="._cart_target" data-state="inactive"></div>
   <header class="layout flex-row border-bottom justify-between padd-blc-1 align-center pos-fixed z-2">
-    <a href="/">
-      <h6 class="font-alt">Eclat de Jus</h6>
-    </a>
+    <div style="display: flex; align-items: center; justify-content: center; flex-direction: row;">
+      <img style="width: 70px; height: 70px;" src="./images/Logo.png" alt="">
+      <a href="index.html">
+        <h6 class="font-alt">Éclat de Jus</h6>
+      </a>
+    </div>
 
     <div class="flex-row gap-2">
       <a href="/" class="bold mobile-hidden">Почетна</a>
@@ -76,7 +79,7 @@
       <a href="./learn.html" class="bold">Процесот</a>
     </div>
 
-    <button class=" _cart_origin" data-target="._cart_target" data-sst="._cart_target">
+    <button style="cursor: pointer;" class=" _cart_origin" data-target="._cart_target" data-sst="._cart_target">
       <p class="mobile-hidden">Кошничка</p>
       <span class="material-symbols-outlined icon-24 ">shopping_bag</span>
     </button>
@@ -88,6 +91,7 @@
     <div class="layout">
       <img src="" alt="" class="layout--6" />
       <div class="layout--4 card flex-column gap-1 padd-1">
+        <img src="./images/Process1.JPG" alt="">
         <h4 class="font-alt border-bottom">Најдоброто од мајка природа</h4>
         <p>
           Соковите Éclat de Jus не содржат шеќери, адитиви и конзерванси. Нашите
@@ -101,6 +105,7 @@
     <div class="layout">
       <div class="layout--2"></div>
       <div class="layout--4 card flex-column gap-1 padd-1">
+        <img src="./images/Process2.JPG" alt="">
         <h4 class="font-alt border-bottom">Eco-friendly достава</h4>
         <p>
           Ние сме еколошки свесна компанија која се грижи за околината и ја почитува природата. Затоа Вашите пакети ќе
@@ -112,6 +117,7 @@
     <div class="layout">
       <img src="" alt="" class="layout--6" />
       <div class="layout--4 card flex-column gap-1 padd-1">
+        <img src="./images/Process3.JPG" alt="">
         <h4 class="font-alt border-bottom">Овошно размрдување</h4>
         <p>
           Одлучете се да бидете одлични! Внесете пролет во Вашиот организам и почуствувајте како повторно енергијата Ви

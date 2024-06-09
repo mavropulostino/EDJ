@@ -26,16 +26,16 @@
     <h6 class="font-alt border-bottom">Достави на</h6>
     <form id="deliveryInfo" class=" flex-column gap-05" autocomplete="on">
       <label for="full_name" title="Please enter your full name">Име и Презиме</label>
-      <input name="full_name" type="text" class="card form" required autocomplete="name">
+      <input name="full_name" type="text" class="card form" placeholder="име и презиме" required autocomplete="name">
 
-      <label for="Address" title="Please enter your address">Адреса</label>
-      <input name="Address" type="text" class="card form" required autocomplete="street-address">
+      <label for="Address" title="Please enter your address">Град и Адреса</label>
+      <input name="Address" type="text" class="card form" placeholder="град / адреса" required autocomplete="street-address">
 
       <label for="Email" title="Please enter your email address">Е-мејл</label>
-      <input name="Email" type="email" class="card form" required autocomplete="email">
+      <input name="Email" type="email" class="card form" placeholder="е-мејл" required autocomplete="email">
 
       <label for="Phone" title="Please enter your phone number">Телефонски Број</label>
-      <input name="Phone" type="tel" class="card form" required autocomplete="tel">
+      <input name="Phone" type="tel" class="card form" placeholder="телефеонски број" required autocomplete="tel">
     </form>
 
 
@@ -64,9 +64,12 @@
 
   <div class="overlay _cart_target _cart_origin" data-sst="._cart_target" data-state="inactive"></div>
   <header class="layout flex-row border-bottom justify-between padd-blc-1 align-center pos-fixed z-2">
-    <a href="/">
-      <h6 class="font-alt">Eclat de Jus</h6>
-    </a>
+    <div style="display: flex; align-items: center; justify-content: center; flex-direction: row;">
+      <img style="width: 70px; height: 70px;" src="./images/Logo.png" alt="">
+      <a href="index.html">
+        <h6 class="font-alt">Éclat de Jus</h6>
+      </a>
+    </div>
 
     <div class="flex-row gap-2">
       <a href="/" class="bold mobile-hidden">Почетна</a>
@@ -76,7 +79,7 @@
       <a href="./learn.html" class="bold">Процесот</a>
     </div>
 
-    <button class=" _cart_origin" data-target="._cart_target" data-sst="._cart_target">
+    <button style="cursor: pointer;" class=" _cart_origin" data-target="._cart_target" data-sst="._cart_target">
       <p class="mobile-hidden">Кошничка</p>
       <span class="material-symbols-outlined icon-24 ">shopping_bag</span>
     </button>
@@ -100,7 +103,7 @@
           <p>Лимон</p>
           <p>Лимета</p>
         </div>
-        <img src="images\aloha_elixir.webp" alt="organic juice" class="juice-img" />
+        <img src="./images/Juices/Aloha_Elixir.PNG" alt="organic juice" class="juice-img" />
       </div>
 
       <div class="layout--4 juices_card flex-row card">
@@ -112,7 +115,7 @@
           <p>Лимета</p>
           <p>Магдонос</p>
         </div>
-        <img src="images\the_early_greens.webp" alt="organic juice" class="juice-img" />
+        <img src="./images/Juices/The_Early_Greens.png" alt="organic juice" class="juice-img" />
       </div>
 
       <div class="layout--4 juices_card flex-row card">
@@ -124,7 +127,7 @@
           <p>Спанаќ</p>
           <p>Лимета</p>
         </div>
-        <img src="images\limeless.webp" alt="organic juice" class="juice-img" />
+        <img src="./images/Juices/Limeless.PNG" alt="organic juice" class="juice-img" />
       </div>
 
       <div class="layout--4 juices_card flex-row card">
@@ -137,7 +140,7 @@
           <p>Лимон</p>
           <p>Лимета</p>
         </div>
-        <img src="images\pear_majesty.webp" alt="organic juice" class="juice-img" />
+        <img src="./images/Juices/Pear_Majesty.PNG" alt="organic juice" class="juice-img" />
       </div>
     </div>
 
@@ -156,7 +159,7 @@
           <p>Портокал</p>
           <p>Морков</p>
         </div>
-        <img src="images\pom_sweet_pom.webp" alt="organic juice" class="juice-img" />
+        <img src="./images/Juices/Pom_Sweet_Pom.PNG" alt="organic juice" class="juice-img" />
       </div>
 
       <div class="layout--4 juices_card flex-row card">
@@ -167,7 +170,7 @@
           <p>Портокал</p>
           <p>Ѓумбир</p>
         </div>
-        <img src="images\the_big_apple.webp" alt="organic juice" class="juice-img" />
+        <img src="./images/Juices/The_Big_Apple.PNG" alt="organic juice" class="juice-img" />
       </div>
 
       <div class="layout--4 juices_card flex-row card">
@@ -177,7 +180,7 @@
           <p>Цвекло</p>
           <p>Портокал</p>
         </div>
-        <img src="images\pom_sweet_pom.webp" alt="organic juice" class="juice-img" />
+        <img src="./images/Juices/Dont_Skip_A_Beat.PNG" alt="organic juice" class="juice-img" />
       </div>
     </div>
 
