@@ -6,7 +6,7 @@ import './OSS-temp/CSS/structure.css'
 import './OSS-temp/CSS/typography.css'
 import './OSS-temp/CSS/utility.css'
 
-import { globalEventHandler } from './osseus/JS/handlers'
-import { singleStateToggle } from './osseus/JS/state'
+import { globalEventHandler } from './OSS-temp/JS/handlers'
+import { singleStateToggle } from './OSS-temp/JS/state'
 
 globalEventHandler('click', '._faq_origin', singleStateToggle)
