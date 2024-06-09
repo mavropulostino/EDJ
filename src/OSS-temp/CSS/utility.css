@@ -1,0 +1,104 @@
+@import '_config.css';
+
+.gap-05 {
+  gap: 0.5rem;
+}
+.gap-1 {
+  gap: 1rem;
+}
+.gap-2 {
+  gap: 2rem;
+}
+.gap-4 {
+  gap: 4rem;
+}
+.gap-6 {
+  gap: 6rem;
+}
+.gap-8 {
+  gap: 8rem;
+}
+
+.padd-05 {
+  padding: 0.5rem;
+}
+.padd-1 {
+  padding: 1rem;
+}
+.padd-2 {
+  padding: 2rem;
+}
+.padd-4 {
+  padding: 4rem;
+}
+.padd-8 {
+  padding: 8rem;
+}
+
+.padd-inl-05 {
+  padding-inline: 0.5rem;
+}
+.padd-inl-1 {
+  padding-inline: 1rem;
+}
+.padd-inl-2 {
+  padding-inline: 2rem;
+}
+.padd-inl-4 {
+  padding-inline: 4rem;
+}
+.padd-inl-8 {
+  padding-inline: 8rem;
+}
+
+.padd-blc-05 {
+  padding-block: 0.5rem;
+}
+.padd-blc-1 {
+  padding-block: 1rem;
+}
+.padd-blc-2 {
+  padding-block: 2rem;
+}
+.padd-blc-4 {
+  padding-block: 4rem;
+}
+.padd-blc-8 {
+  padding-block: 8rem;
+}
+
+.pos-relative {
+  position: relative;
+}
+.pos-fixed {
+  position: fixed;
+}
+.pos-abs {
+  position: absolute;
+}
+.push-left {
+  margin-right: auto;
+}
+.push-right {
+  margin-left: auto;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #999;
+}
+.border-top {
+  border-top: 1px solid #999;
+}
+button {
+  padding: 0.5rem 1rem;
+  gap: 1rem;
+
+  font-weight: 600;
+  border-radius: 2px;
+
+  color: white;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

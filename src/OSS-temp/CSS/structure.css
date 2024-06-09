@@ -1,0 +1,65 @@
+@import '_config.css';
+
+.layout--parent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout--parent-gap);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: var(--layout-grid);
+  padding: var(--layout-margins-yx);
+  gap: var(--layout-gap-yx);
+}
+
+.layout--12 {
+  grid-column: span 12;
+}
+.layout--8 {
+  grid-column: span 8;
+}
+.layout--6 {
+  grid-column: span 6;
+}
+.layout--4 {
+  grid-column: span 4;
+}
+.layout--3 {
+  grid-column: span 3;
+}
+.layout--2 {
+  grid-column: span 2;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+.align-center {
+  align-items: center;
+}
+.align-end {
+  align-items: end;
+}
+
+.justify-self-start {
+  justify-self: start;
+}
+.justify-self-center {
+  justify-self: center;
+}
+.justify-self-end {
+  justify-self: end;
+}
